@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// Custom colors to use in SwiftUI
+///
 public extension Color {
     static var surface: Color {
         .init(hex: 0xD2D2D2)
@@ -29,6 +31,8 @@ public extension Color {
     }
 }
 
+/// Custom colors to use in UIKit
+///
 public extension UIColor {
     static var surface: UIColor {
         .init(.surface)

@@ -1,5 +1,5 @@
 //
-//  LessonList.swift
+//  LessonListView.swift
 //  Photography
 //
 //  Created by Alireza Sotoudeh on 4/1/23.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct LessonList: View {
+struct LessonListView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct LessonList_Previews: PreviewProvider {
-    static var previews: some View {
-        LessonList()
-    }
-}
+//struct LessonListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LessonList()
+//    }
+//}

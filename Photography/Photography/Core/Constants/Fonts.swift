@@ -7,13 +7,15 @@
 
 import SwiftUI
 
+/// Fonts colors to use in SwiftUI
+///
 public extension Font {
     static var title1: Font {
         .system(Font.TextStyle.title, design: .default, weight: .bold)
     }
     
     static var subtitle: Font {
-        .system(Font.TextStyle.title3, design: .default, weight: .medium)
+        .system(Font.TextStyle.body, design: .default, weight: .medium)
     }
     
     static var regularBody: Font {
@@ -21,6 +23,8 @@ public extension Font {
     }
 }
 
+/// Fonts colors to use in UIKit
+///
 public extension UIFont {
     static var title1: UIFont {
         .systemFont(ofSize: UIFont.preferredFont(forTextStyle: .title1).pointSize, weight: .bold)
