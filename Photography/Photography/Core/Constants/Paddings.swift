@@ -12,5 +12,5 @@ public extension CGFloat {
     static let verticalPadding: CGFloat = 16
     static let interItemSpacing: CGFloat = 12
     static let interlineSpacing: CGFloat = 8
-    static let corneRadius: CGFloat = 8
+    static let corneRadius: CGFloat = 4
 }

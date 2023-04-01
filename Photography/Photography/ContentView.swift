@@ -12,16 +12,13 @@ struct ContentView: View {
         ZStack {
             Color.background
             VStack {
-                Text("Lessons")
-                    .font(Font.title1)
-                    .foregroundColor(.caption)
-                Text("Lessons")
-                    .font(Font.subtitle)
-                    .foregroundColor(.caption)
-                Text("Lessons")
-                    .font(Font.regularBody)
-                    .foregroundColor(.surface)
+                LessonListRow(
+                    imagePath: "https://embed-ssl.wistia.com/deliveries/b57817b5b05c3e3129b7071eee83ecb7.jpg?image_crop_resized=1000x560",
+                    title: "How To Choose The Correct iPhone Camera Lens asda sdas d as d"
+                )
             }
+            .padding(.horizontal, 16)
+            .frame(height: 300)
         }
     }
 }

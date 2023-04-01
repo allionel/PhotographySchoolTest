@@ -19,7 +19,7 @@ public extension Color {
     }
     
     static var border: Color {
-        .init(hex: 0x262626)
+        .init(hex: 0x444444)
     }
     
     static var action: Color {

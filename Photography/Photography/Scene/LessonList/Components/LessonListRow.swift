@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LessonListRow: View {
-    let image: String = "iOS-design"
+    let imagePath: String
     let title: String
     
     private var screenWidth: CGFloat {
@@ -27,13 +27,15 @@ struct LessonListRow: View {
     var body: some View {
         HStack(spacing: 16) {
             makeListImage()
-            VStack(alignment: .leading, spacing: .zero) {
-                ZStack {
+            VStack( spacing: .zero) {
+                ZStack(alignment: .leading) {
                     HStack {
                         makeTitle()
+                        Spacer()
                         makeArrow()
-                            .padding(.trailing, 16)
+//                            .padding(.trailing, 16)
                     }
+                    .padding(.vertical, .interlineSpacing)
                     makeDivider()
                 }
             }
@@ -43,11 +45,9 @@ struct LessonListRow: View {
     
     private func makeListImage() -> some View {
         VStack {
-            Image(image)
-                .resizable()
-                .scaledToFit()
-                .cornerRadius(.corneRadius)
+            RemoteImage(path: imagePath)
                 .frame(width: imageWidth)
+                .cornerRadius(.corneRadius)
         }
     }
     
@@ -66,7 +66,7 @@ struct LessonListRow: View {
         VStack {
             Spacer()
             Divider()
-                .background(Color.background)
+                .background(Color.border)
         }
     }
 }
@@ -74,7 +74,10 @@ struct LessonListRow: View {
 struct LessonListRow_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            LessonListRow(title: "How To Choose The Correct iPhone Camera Lens asda sdas d as d")
+            LessonListRow(
+                imagePath: "https://embed-ssl.wistia.com/deliveries/b57817b5b05c3e3129b7071eee83ecb7.jpg?image_crop_resized=1000x560",
+                title: "How To Choose The Correct iPhone Camera Lens How To Choose The Correct iPhone Camera Lens"
+            )
         }
         .background(Color.background)
         .frame(height: 300)
