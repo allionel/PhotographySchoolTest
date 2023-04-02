@@ -1,5 +1,5 @@
 //
-//  NetworkError.swift
+//  ServerError.swift
 //  Photography
 //
 //  Created by Alireza Sotoudeh on 4/2/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetworkError: Int, Error {
+enum ServerError: Int, Error {
     typealias RawValue = Int
     case badRequest = 400
     case unauthorized = 401
@@ -22,7 +22,7 @@ enum NetworkError: Int, Error {
     case unknown = 1002
 }
 
-extension NetworkError: LocalizedError {
+extension ServerError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .badRequest:

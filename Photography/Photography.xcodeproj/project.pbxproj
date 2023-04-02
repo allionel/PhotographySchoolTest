@@ -22,12 +22,16 @@
 		7FBE2A9C29D946A00006C3B2 /* Strings+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2A9B29D946A00006C3B2 /* Strings+Extension.swift */; };
 		7FBE2AA029D94BBC0006C3B2 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2A9F29D94BBC0006C3B2 /* Lesson.swift */; };
 		7FBE2AA329D95AF20006C3B2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AA229D95AF20006C3B2 /* NetworkManager.swift */; };
-		7FBE2AA529D95B4F0006C3B2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AA429D95B4F0006C3B2 /* NetworkError.swift */; };
+		7FBE2AA529D95B4F0006C3B2 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AA429D95B4F0006C3B2 /* ServerError.swift */; };
 		7FBE2AA729D961F70006C3B2 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AA629D961F70006C3B2 /* NetworkRouter.swift */; };
 		7FBE2AA929D967350006C3B2 /* LessonsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AA829D967350006C3B2 /* LessonsRepository.swift */; };
 		7FBE2AAB29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AAA29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift */; };
 		7FBE2AAF29D97D5A0006C3B2 /* ServicesDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AAE29D97D5A0006C3B2 /* ServicesDependencyContainer.swift */; };
 		7FBE2AB129D97F0C0006C3B2 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AB029D97F0C0006C3B2 /* DependencyContainer.swift */; };
+		7FBE2AB529D987F70006C3B2 /* LessonsRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AB429D987F70006C3B2 /* LessonsRemoteRepository.swift */; };
+		7FBE2AB729D988160006C3B2 /* LessonsLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AB629D988160006C3B2 /* LessonsLocalRepository.swift */; };
+		7FBE2ABC29DA02180006C3B2 /* LocalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ABB29DA02180006C3B2 /* LocalError.swift */; };
+		7FBE2ABE29DA02280006C3B2 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ABD29DA02280006C3B2 /* ClientError.swift */; };
 		7FC06E8C29D8CF0200CB7F1C /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC06E8B29D8CF0200CB7F1C /* RemoteImage.swift */; };
 		7FDAA60629D856180096D888 /* PhotographyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAA60529D856180096D888 /* PhotographyApp.swift */; };
 		7FDAA60829D856180096D888 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAA60729D856180096D888 /* ContentView.swift */; };
@@ -50,12 +54,16 @@
 		7FBE2A9B29D946A00006C3B2 /* Strings+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extension.swift"; sourceTree = "<group>"; };
 		7FBE2A9F29D94BBC0006C3B2 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		7FBE2AA229D95AF20006C3B2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		7FBE2AA429D95B4F0006C3B2 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		7FBE2AA429D95B4F0006C3B2 /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		7FBE2AA629D961F70006C3B2 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		7FBE2AA829D967350006C3B2 /* LessonsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsRepository.swift; sourceTree = "<group>"; };
 		7FBE2AAA29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesDependencyContainer.swift; sourceTree = "<group>"; };
 		7FBE2AAE29D97D5A0006C3B2 /* ServicesDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesDependencyContainer.swift; sourceTree = "<group>"; };
 		7FBE2AB029D97F0C0006C3B2 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		7FBE2AB429D987F70006C3B2 /* LessonsRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsRemoteRepository.swift; sourceTree = "<group>"; };
+		7FBE2AB629D988160006C3B2 /* LessonsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsLocalRepository.swift; sourceTree = "<group>"; };
+		7FBE2ABB29DA02180006C3B2 /* LocalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalError.swift; sourceTree = "<group>"; };
+		7FBE2ABD29DA02280006C3B2 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		7FC06E8B29D8CF0200CB7F1C /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		7FDAA60229D856180096D888 /* Photography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photography.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FDAA60529D856180096D888 /* PhotographyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyApp.swift; sourceTree = "<group>"; };
@@ -155,7 +163,6 @@
 		7FBE2A9D29D94B710006C3B2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7FBE2A9E29D94B8E0006C3B2 /* Models */,
 				7FBE2AA229D95AF20006C3B2 /* NetworkManager.swift */,
 				7FBE2AA629D961F70006C3B2 /* NetworkRouter.swift */,
 			);
@@ -166,7 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				7FBE2A9F29D94BBC0006C3B2 /* Lesson.swift */,
-				7FBE2AA429D95B4F0006C3B2 /* NetworkError.swift */,
+				7FBE2ABD29DA02280006C3B2 /* ClientError.swift */,
+				7FBE2ABB29DA02180006C3B2 /* LocalError.swift */,
+				7FBE2AA429D95B4F0006C3B2 /* ServerError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +190,8 @@
 		7FBE2AAC29D97CC80006C3B2 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				7FBE2AB229D987D10006C3B2 /* Remote */,
+				7FBE2AB329D987D90006C3B2 /* Local */,
 				7FBE2AAA29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift */,
 				7FBE2AA829D967350006C3B2 /* LessonsRepository.swift */,
 			);
@@ -193,6 +204,29 @@
 				7FBE2AAE29D97D5A0006C3B2 /* ServicesDependencyContainer.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		7FBE2AB229D987D10006C3B2 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE2AB429D987F70006C3B2 /* LessonsRemoteRepository.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		7FBE2AB329D987D90006C3B2 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE2AB629D988160006C3B2 /* LessonsLocalRepository.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		7FBE2AB829D9FA500006C3B2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		7FDAA5F929D856180096D888 = {
@@ -219,6 +253,8 @@
 				7F2A67DE29D8815F00238342 /* Scene */,
 				7F2A67E129D881DC00238342 /* Components */,
 				7F2A67D329D8720E00238342 /* Core */,
+				7FBE2AB829D9FA500006C3B2 /* Protocols */,
+				7FBE2A9E29D94B8E0006C3B2 /* Models */,
 				7FBE2AAC29D97CC80006C3B2 /* Repositories */,
 				7FBE2AAD29D97D420006C3B2 /* Services */,
 				7FBE2A9D29D94B710006C3B2 /* Network */,
@@ -313,7 +349,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FBE2AA529D95B4F0006C3B2 /* NetworkError.swift in Sources */,
+				7FBE2ABC29DA02180006C3B2 /* LocalError.swift in Sources */,
+				7FBE2AA529D95B4F0006C3B2 /* ServerError.swift in Sources */,
 				7FBE2AA029D94BBC0006C3B2 /* Lesson.swift in Sources */,
 				7F2A67DD29D8782500238342 /* Fonts.swift in Sources */,
 				7FDAA60829D856180096D888 /* ContentView.swift in Sources */,
@@ -322,9 +359,11 @@
 				7FBE2AA329D95AF20006C3B2 /* NetworkManager.swift in Sources */,
 				7FBE2AAF29D97D5A0006C3B2 /* ServicesDependencyContainer.swift in Sources */,
 				7F2A67D729D8731100238342 /* Colors.swift in Sources */,
+				7FBE2AB729D988160006C3B2 /* LessonsLocalRepository.swift in Sources */,
 				7FC06E8C29D8CF0200CB7F1C /* RemoteImage.swift in Sources */,
 				7FDAA60629D856180096D888 /* PhotographyApp.swift in Sources */,
 				7FBE2AAB29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift in Sources */,
+				7FBE2ABE29DA02280006C3B2 /* ClientError.swift in Sources */,
 				7F2A67D229D8650A00238342 /* LessonListView.swift in Sources */,
 				7FBE2A9A29D945EB0006C3B2 /* Strings.swift in Sources */,
 				7F2A67E329D8820400238342 /* LessonListRow.swift in Sources */,
@@ -332,6 +371,7 @@
 				7FBE2AB129D97F0C0006C3B2 /* DependencyContainer.swift in Sources */,
 				7F2A67D529D8728100238342 /* Color+Extension.swift in Sources */,
 				7F2A67E529D8949900238342 /* Paddings.swift in Sources */,
+				7FBE2AB529D987F70006C3B2 /* LessonsRemoteRepository.swift in Sources */,
 				7FBE2A9C29D946A00006C3B2 /* Strings+Extension.swift in Sources */,
 				7FBE2A9529D8D8440006C3B2 /* LessonListTemplate.swift in Sources */,
 				7FBE2AA729D961F70006C3B2 /* NetworkRouter.swift in Sources */,

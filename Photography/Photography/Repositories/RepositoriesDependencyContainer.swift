@@ -10,11 +10,14 @@ import Foundation
 final class RepositoriesDependencyContainer {
     private let client: APIClient
     
-    init(client: APIClient = NetworkManager()) {
+    init(client: APIClient) {
         self.client = client
     }
     
     lazy var lessonsRepository: LessonsRepository = {
-        .init(client: client)
+        let remoteRepository: LessonsRemoteRepository = LessonsRemoteRepositoryImp(client: client)
+        let localRepository: LessonsLocalRepository = LessonsLocalRepositoryImp()
+        let repository = LessonsRepositoryImp(remoteRepository: remoteRepository, localRepository: localRepository)
+        return repository
     }()
 }

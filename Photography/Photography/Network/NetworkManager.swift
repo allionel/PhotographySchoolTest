@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 protocol APIClient {
-    func request<T>(_: URLRequestConvertible, result: @escaping (Result<T, NetworkError>) -> Void) where T: Decodable, T: Encodable
+    func request<T>(_: URLRequestConvertible, result: @escaping (Result<T, ServerError>) -> Void) where T: Decodable, T: Encodable
 }
 
 final class NetworkManager {
@@ -27,9 +27,9 @@ final class NetworkManager {
 }
 
 extension NetworkManager: APIClient {
-    func request<T>(_ endpoint: Alamofire.URLRequestConvertible, result: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable, T : Encodable {
+    func request<T>(_ endpoint: Alamofire.URLRequestConvertible, result: @escaping (Result<T, ServerError>) -> Void) where T : Decodable, T : Encodable {
         guard let urlRequest = try? endpoint.asURLRequest() else {
-            result(.failure(NetworkError.invalidRequest))
+            result(.failure(ServerError.invalidRequest))
             return
         }
         let request = sessionManager.request(urlRequest)
@@ -48,7 +48,7 @@ extension NetworkManager: APIClient {
                 case let .success(model):
                     result(.success(model))
                 case let .failure(error):
-                    result(.failure(NetworkError(rawValue: error.responseCode ?? 1002) ?? NetworkError.unknown))
+                    result(.failure(ServerError(rawValue: error.responseCode ?? 1002) ?? ServerError.unknown))
                 }
             }
     }

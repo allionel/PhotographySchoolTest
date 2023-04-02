@@ -7,7 +7,11 @@
 
 import Foundation
 
-public struct Lesson: Decodable, Identifiable {
+public struct Lessons: Codable {
+    public let lessons: [Lessons]
+}
+
+public struct Lesson: Codable, Identifiable, Hashable {
     public let id: Int
     public let name: String
     public let description: String
