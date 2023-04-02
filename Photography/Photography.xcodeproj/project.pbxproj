@@ -21,6 +21,8 @@
 		7FBE2A9A29D945EB0006C3B2 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2A9929D945EB0006C3B2 /* Strings.swift */; };
 		7FBE2A9C29D946A00006C3B2 /* Strings+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2A9B29D946A00006C3B2 /* Strings+Extension.swift */; };
 		7FBE2AA029D94BBC0006C3B2 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2A9F29D94BBC0006C3B2 /* Lesson.swift */; };
+		7FBE2AA329D95AF20006C3B2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AA229D95AF20006C3B2 /* NetworkManager.swift */; };
+		7FBE2AA529D95B4F0006C3B2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AA429D95B4F0006C3B2 /* NetworkError.swift */; };
 		7FC06E8C29D8CF0200CB7F1C /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC06E8B29D8CF0200CB7F1C /* RemoteImage.swift */; };
 		7FDAA60629D856180096D888 /* PhotographyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAA60529D856180096D888 /* PhotographyApp.swift */; };
 		7FDAA60829D856180096D888 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAA60729D856180096D888 /* ContentView.swift */; };
@@ -42,6 +44,8 @@
 		7FBE2A9929D945EB0006C3B2 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		7FBE2A9B29D946A00006C3B2 /* Strings+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extension.swift"; sourceTree = "<group>"; };
 		7FBE2A9F29D94BBC0006C3B2 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		7FBE2AA229D95AF20006C3B2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7FBE2AA429D95B4F0006C3B2 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		7FC06E8B29D8CF0200CB7F1C /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		7FDAA60229D856180096D888 /* Photography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photography.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FDAA60529D856180096D888 /* PhotographyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyApp.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				7F2A67EA29D8A8D200238342 /* LessonList */,
+				7FBE2AA129D94D300006C3B2 /* LessonDetail */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				7FBE2A9E29D94B8E0006C3B2 /* Models */,
+				7FBE2AA229D95AF20006C3B2 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -148,8 +154,16 @@
 			isa = PBXGroup;
 			children = (
 				7FBE2A9F29D94BBC0006C3B2 /* Lesson.swift */,
+				7FBE2AA429D95B4F0006C3B2 /* NetworkError.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7FBE2AA129D94D300006C3B2 /* LessonDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LessonDetail;
 			sourceTree = "<group>";
 		};
 		7FDAA5F929D856180096D888 = {
@@ -268,10 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FBE2AA529D95B4F0006C3B2 /* NetworkError.swift in Sources */,
 				7FBE2AA029D94BBC0006C3B2 /* Lesson.swift in Sources */,
 				7F2A67DD29D8782500238342 /* Fonts.swift in Sources */,
 				7FDAA60829D856180096D888 /* ContentView.swift in Sources */,
 				7F2A67E729D8981100238342 /* Image+Extension.swift in Sources */,
+				7FBE2AA329D95AF20006C3B2 /* NetworkManager.swift in Sources */,
 				7F2A67D729D8731100238342 /* Colors.swift in Sources */,
 				7FC06E8C29D8CF0200CB7F1C /* RemoteImage.swift in Sources */,
 				7FDAA60629D856180096D888 /* PhotographyApp.swift in Sources */,
