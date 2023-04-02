@@ -20,12 +20,13 @@ struct LessonListRow: View {
     }
     
     // We consider the max height as three lines
+    // The scale of the pic is 560:1000
     //
     private var rowHeight: CGFloat {
         imageWidth * 56 / 100 + (2 * CGFloat.verticalPadding)
     }
     var body: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: .horizontalPadding) {
             makeListImage()
             VStack( spacing: .zero) {
                 ZStack(alignment: .leading) {
@@ -33,10 +34,9 @@ struct LessonListRow: View {
                         makeTitle()
                         Spacer()
                         makeArrow()
-//                            .padding(.trailing, 16)
                     }
                     .padding(.vertical, .interlineSpacing)
-                    makeDivider()
+//                    makeDivider()
                 }
             }
         }
@@ -62,13 +62,13 @@ struct LessonListRow: View {
             .foregroundColor(.action)
     }
     
-    private func makeDivider() -> some View {
-        VStack {
-            Spacer()
-            Divider()
-                .background(Color.border)
-        }
-    }
+//    private func makeDivider() -> some View {
+//        VStack {
+//            Spacer()
+//            Divider()
+//                .background(Color.border)
+//        }
+//    }
 }
 
 struct LessonListRow_Previews: PreviewProvider {

@@ -19,7 +19,7 @@ struct RemoteImage: View {
                 image.resizable()
                     .aspectRatio(contentMode: .fit)
             case .failure:
-                Image(systemName: "photo")
+                Image(name: .placeholder)
             @unknown default:
                 EmptyView()
             }

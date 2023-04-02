@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public extension SwiftUI.Image {
+public extension Image {
     init(name: ImageName) {
         self.init(name.rawValue)
     }
