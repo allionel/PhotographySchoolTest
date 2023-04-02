@@ -38,17 +38,3 @@ struct LessonListTemplate_Previews: PreviewProvider {
         .init(id: 22, name: "This is Number one", description: "", thumbnail: "https://embed-ssl.wistia.com/deliveries/f7105de283304e0dc6fe40e5abbf778f.jpg?image_crop_resized=1000x560", videoUrl: "")
     ]
 }
-
-
-public struct Lesson: Decodable, Identifiable {
-    public let id: Int
-    public let name: String
-    public let description: String
-    public let thumbnail: String
-    public let videoUrl: String
-    
-    private enum CodingKeys: String, CodingKey {
-        case id, name, description, thumbnail
-        case videoUrl = "video_url"
-    }
-}
