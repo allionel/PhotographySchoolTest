@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class DependencyContainer {
-    static var shared = DependencyContainer()
+final class DependencyContainer: Singleton {
+    public static var shared: DependencyContainer = .init()
     private init() {}
 
     private(set) lazy var services = ServicesDependencyContainer()

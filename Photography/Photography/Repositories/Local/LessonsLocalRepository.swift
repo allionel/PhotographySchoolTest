@@ -9,7 +9,7 @@ import Foundation
 
 protocol LessonsLocalRepository {
     func save(data: Lessons)
-    func loadData(data completion: @escaping (Result<Lessons, LocalError>) -> Void)
+    func load(data completion: @escaping (Result<Lessons, LocalError>) -> Void)
 }
 
 struct LessonsLocalRepositoryImp: LessonsLocalRepository {
@@ -17,10 +17,7 @@ struct LessonsLocalRepositoryImp: LessonsLocalRepository {
         
     }
     
-    func loadData(data completion: @escaping (Result<Lessons, LocalError>) -> Void) {
-        
+    func load(data completion: @escaping (Result<Lessons, LocalError>) -> Void) {
+        // Fetch from database
     }
-    
-    // Fetch from database
-    
 }

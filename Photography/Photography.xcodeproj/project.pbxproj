@@ -32,6 +32,13 @@
 		7FBE2AB729D988160006C3B2 /* LessonsLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AB629D988160006C3B2 /* LessonsLocalRepository.swift */; };
 		7FBE2ABC29DA02180006C3B2 /* LocalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ABB29DA02180006C3B2 /* LocalError.swift */; };
 		7FBE2ABE29DA02280006C3B2 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ABD29DA02280006C3B2 /* ClientError.swift */; };
+		7FBE2AC129DA37AC0006C3B2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7FBE2AC029DA37AC0006C3B2 /* Realm */; };
+		7FBE2AC329DA37AC0006C3B2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7FBE2AC229DA37AC0006C3B2 /* RealmSwift */; };
+		7FBE2AC629DA3CF00006C3B2 /* DatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AC529DA3CF00006C3B2 /* DatabaseProvider.swift */; };
+		7FBE2AC829DA3D000006C3B2 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AC729DA3D000006C3B2 /* DatabaseManager.swift */; };
+		7FBE2ACA29DA3D690006C3B2 /* RealObjectAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AC929DA3D690006C3B2 /* RealObjectAdapter.swift */; };
+		7FBE2ACC29DA3E370006C3B2 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ACB29DA3E370006C3B2 /* Singleton.swift */; };
+		7FBE2ACE29DA408E0006C3B2 /* LessonRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ACD29DA408E0006C3B2 /* LessonRealmObject.swift */; };
 		7FC06E8C29D8CF0200CB7F1C /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC06E8B29D8CF0200CB7F1C /* RemoteImage.swift */; };
 		7FDAA60629D856180096D888 /* PhotographyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAA60529D856180096D888 /* PhotographyApp.swift */; };
 		7FDAA60829D856180096D888 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAA60729D856180096D888 /* ContentView.swift */; };
@@ -64,6 +71,11 @@
 		7FBE2AB629D988160006C3B2 /* LessonsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsLocalRepository.swift; sourceTree = "<group>"; };
 		7FBE2ABB29DA02180006C3B2 /* LocalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalError.swift; sourceTree = "<group>"; };
 		7FBE2ABD29DA02280006C3B2 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
+		7FBE2AC529DA3CF00006C3B2 /* DatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProvider.swift; sourceTree = "<group>"; };
+		7FBE2AC729DA3D000006C3B2 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		7FBE2AC929DA3D690006C3B2 /* RealObjectAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealObjectAdapter.swift; sourceTree = "<group>"; };
+		7FBE2ACB29DA3E370006C3B2 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		7FBE2ACD29DA408E0006C3B2 /* LessonRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRealmObject.swift; sourceTree = "<group>"; };
 		7FC06E8B29D8CF0200CB7F1C /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		7FDAA60229D856180096D888 /* Photography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photography.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FDAA60529D856180096D888 /* PhotographyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyApp.swift; sourceTree = "<group>"; };
@@ -77,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FBE2AC329DA37AC0006C3B2 /* RealmSwift in Frameworks */,
+				7FBE2AC129DA37AC0006C3B2 /* Realm in Frameworks */,
 				7F2A67D029D8649300238342 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +101,7 @@
 		7F2A67D329D8720E00238342 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7FBE2AC429DA3CC30006C3B2 /* Database */,
 				7F2A67D829D8769A00238342 /* Extensions */,
 				7F2A67D929D876A400238342 /* Constants */,
 				7FBE2AB029D97F0C0006C3B2 /* DependencyContainer.swift */,
@@ -173,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				7FBE2A9F29D94BBC0006C3B2 /* Lesson.swift */,
+				7FBE2ACD29DA408E0006C3B2 /* LessonRealmObject.swift */,
 				7FBE2ABD29DA02280006C3B2 /* ClientError.swift */,
 				7FBE2ABB29DA02180006C3B2 /* LocalError.swift */,
 				7FBE2AA429D95B4F0006C3B2 /* ServerError.swift */,
@@ -225,8 +241,19 @@
 		7FBE2AB829D9FA500006C3B2 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				7FBE2ACB29DA3E370006C3B2 /* Singleton.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7FBE2AC429DA3CC30006C3B2 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE2AC529DA3CF00006C3B2 /* DatabaseProvider.swift */,
+				7FBE2AC729DA3D000006C3B2 /* DatabaseManager.swift */,
+				7FBE2AC929DA3D690006C3B2 /* RealObjectAdapter.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		7FDAA5F929D856180096D888 = {
@@ -290,6 +317,8 @@
 			name = Photography;
 			packageProductDependencies = (
 				7F2A67CF29D8649300238342 /* Alamofire */,
+				7FBE2AC029DA37AC0006C3B2 /* Realm */,
+				7FBE2AC229DA37AC0006C3B2 /* RealmSwift */,
 			);
 			productName = Photography;
 			productReference = 7FDAA60229D856180096D888 /* Photography.app */;
@@ -321,6 +350,7 @@
 			mainGroup = 7FDAA5F929D856180096D888;
 			packageReferences = (
 				7F2A67CE29D8649300238342 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7FBE2ABF29DA37AC0006C3B2 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 7FDAA60329D856180096D888 /* Products */;
 			projectDirPath = "";
@@ -354,6 +384,7 @@
 				7FBE2AA029D94BBC0006C3B2 /* Lesson.swift in Sources */,
 				7F2A67DD29D8782500238342 /* Fonts.swift in Sources */,
 				7FDAA60829D856180096D888 /* ContentView.swift in Sources */,
+				7FBE2ACE29DA408E0006C3B2 /* LessonRealmObject.swift in Sources */,
 				7FBE2AA929D967350006C3B2 /* LessonsRepository.swift in Sources */,
 				7F2A67E729D8981100238342 /* Image+Extension.swift in Sources */,
 				7FBE2AA329D95AF20006C3B2 /* NetworkManager.swift in Sources */,
@@ -362,12 +393,16 @@
 				7FBE2AB729D988160006C3B2 /* LessonsLocalRepository.swift in Sources */,
 				7FC06E8C29D8CF0200CB7F1C /* RemoteImage.swift in Sources */,
 				7FDAA60629D856180096D888 /* PhotographyApp.swift in Sources */,
+				7FBE2ACC29DA3E370006C3B2 /* Singleton.swift in Sources */,
 				7FBE2AAB29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift in Sources */,
 				7FBE2ABE29DA02280006C3B2 /* ClientError.swift in Sources */,
 				7F2A67D229D8650A00238342 /* LessonListView.swift in Sources */,
 				7FBE2A9A29D945EB0006C3B2 /* Strings.swift in Sources */,
 				7F2A67E329D8820400238342 /* LessonListRow.swift in Sources */,
+				7FBE2AC629DA3CF00006C3B2 /* DatabaseProvider.swift in Sources */,
 				7F2A67E929D89D2800238342 /* Images.swift in Sources */,
+				7FBE2ACA29DA3D690006C3B2 /* RealObjectAdapter.swift in Sources */,
+				7FBE2AC829DA3D000006C3B2 /* DatabaseManager.swift in Sources */,
 				7FBE2AB129D97F0C0006C3B2 /* DependencyContainer.swift in Sources */,
 				7F2A67D529D8728100238342 /* Color+Extension.swift in Sources */,
 				7F2A67E529D8949900238342 /* Paddings.swift in Sources */,
@@ -593,6 +628,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		7FBE2ABF29DA37AC0006C3B2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -600,6 +643,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F2A67CE29D8649300238342 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		7FBE2AC029DA37AC0006C3B2 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FBE2ABF29DA37AC0006C3B2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		7FBE2AC229DA37AC0006C3B2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FBE2ABF29DA37AC0006C3B2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

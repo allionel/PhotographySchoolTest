@@ -43,7 +43,7 @@ struct LessonsRepositoryImp: LessonsRepository {
     }
     
     private func handleResponsOffline(result completion: @escaping LessonsResponse) {
-        localRepository.loadData { (response: Result<Lessons, LocalError>) in
+        localRepository.load { (response: Result<Lessons, LocalError>) in
             switch response {
             case .success(let data):
                 completion(.success(data))

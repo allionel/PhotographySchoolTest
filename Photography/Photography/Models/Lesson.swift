@@ -23,3 +23,23 @@ public struct Lesson: Codable, Identifiable, Hashable {
         case videoUrl = "video_url"
     }
 }
+
+extension Lesson: RealObjectAdapter {
+    public init(managedObject: LessonRealmObject) {
+        self.id = managedObject.id
+        self.name = managedObject.name
+        self.description = managedObject.desc
+        self.thumbnail = managedObject.thumbnail
+        self.videoUrl = managedObject.videoUrl
+    }
+
+    public func managedObject() -> LessonRealmObject {
+        let managedObject: LessonRealmObject = .init()
+        managedObject.id = id
+        managedObject.name = name
+        managedObject.desc = description
+        managedObject.thumbnail = thumbnail
+        managedObject.videoUrl = videoUrl
+        return managedObject
+    }
+}
