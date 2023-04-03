@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-public protocol RealObjectAdapter {
+public protocol RealmObjectAdapter {
     associatedtype ManagedObject: RealmSwift.Object & RealmUniqueObject
     init(managedObject: ManagedObject)
     func managedObject() -> ManagedObject

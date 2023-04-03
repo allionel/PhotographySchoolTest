@@ -36,9 +36,11 @@
 		7FBE2AC329DA37AC0006C3B2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7FBE2AC229DA37AC0006C3B2 /* RealmSwift */; };
 		7FBE2AC629DA3CF00006C3B2 /* DatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AC529DA3CF00006C3B2 /* DatabaseProvider.swift */; };
 		7FBE2AC829DA3D000006C3B2 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AC729DA3D000006C3B2 /* DatabaseManager.swift */; };
-		7FBE2ACA29DA3D690006C3B2 /* RealObjectAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AC929DA3D690006C3B2 /* RealObjectAdapter.swift */; };
+		7FBE2ACA29DA3D690006C3B2 /* RealmObjectAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AC929DA3D690006C3B2 /* RealmObjectAdapter.swift */; };
 		7FBE2ACC29DA3E370006C3B2 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ACB29DA3E370006C3B2 /* Singleton.swift */; };
 		7FBE2ACE29DA408E0006C3B2 /* LessonRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ACD29DA408E0006C3B2 /* LessonRealmObject.swift */; };
+		7FBE2AD029DAC1070006C3B2 /* ClientAssetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ACF29DAC1070006C3B2 /* ClientAssetProtocol.swift */; };
+		7FBE2AD229DAC1240006C3B2 /* ClientImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AD129DAC1240006C3B2 /* ClientImage.swift */; };
 		7FC06E8C29D8CF0200CB7F1C /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC06E8B29D8CF0200CB7F1C /* RemoteImage.swift */; };
 		7FDAA60629D856180096D888 /* PhotographyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAA60529D856180096D888 /* PhotographyApp.swift */; };
 		7FDAA60829D856180096D888 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAA60729D856180096D888 /* ContentView.swift */; };
@@ -73,9 +75,11 @@
 		7FBE2ABD29DA02280006C3B2 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		7FBE2AC529DA3CF00006C3B2 /* DatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProvider.swift; sourceTree = "<group>"; };
 		7FBE2AC729DA3D000006C3B2 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		7FBE2AC929DA3D690006C3B2 /* RealObjectAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealObjectAdapter.swift; sourceTree = "<group>"; };
+		7FBE2AC929DA3D690006C3B2 /* RealmObjectAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectAdapter.swift; sourceTree = "<group>"; };
 		7FBE2ACB29DA3E370006C3B2 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		7FBE2ACD29DA408E0006C3B2 /* LessonRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRealmObject.swift; sourceTree = "<group>"; };
+		7FBE2ACF29DAC1070006C3B2 /* ClientAssetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAssetProtocol.swift; sourceTree = "<group>"; };
+		7FBE2AD129DAC1240006C3B2 /* ClientImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientImage.swift; sourceTree = "<group>"; };
 		7FC06E8B29D8CF0200CB7F1C /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		7FDAA60229D856180096D888 /* Photography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photography.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FDAA60529D856180096D888 /* PhotographyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyApp.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		7F2A67E129D881DC00238342 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7FBE2AD129DAC1240006C3B2 /* ClientImage.swift */,
 				7FC06E8B29D8CF0200CB7F1C /* RemoteImage.swift */,
 			);
 			path = Components;
@@ -206,10 +211,10 @@
 		7FBE2AAC29D97CC80006C3B2 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				7FBE2AB229D987D10006C3B2 /* Remote */,
-				7FBE2AB329D987D90006C3B2 /* Local */,
 				7FBE2AAA29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift */,
 				7FBE2AA829D967350006C3B2 /* LessonsRepository.swift */,
+				7FBE2AB429D987F70006C3B2 /* LessonsRemoteRepository.swift */,
+				7FBE2AB629D988160006C3B2 /* LessonsLocalRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -222,26 +227,11 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		7FBE2AB229D987D10006C3B2 /* Remote */ = {
-			isa = PBXGroup;
-			children = (
-				7FBE2AB429D987F70006C3B2 /* LessonsRemoteRepository.swift */,
-			);
-			path = Remote;
-			sourceTree = "<group>";
-		};
-		7FBE2AB329D987D90006C3B2 /* Local */ = {
-			isa = PBXGroup;
-			children = (
-				7FBE2AB629D988160006C3B2 /* LessonsLocalRepository.swift */,
-			);
-			path = Local;
-			sourceTree = "<group>";
-		};
 		7FBE2AB829D9FA500006C3B2 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				7FBE2ACB29DA3E370006C3B2 /* Singleton.swift */,
+				7FBE2ACF29DAC1070006C3B2 /* ClientAssetProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -249,9 +239,9 @@
 		7FBE2AC429DA3CC30006C3B2 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				7FBE2AC929DA3D690006C3B2 /* RealmObjectAdapter.swift */,
 				7FBE2AC529DA3CF00006C3B2 /* DatabaseProvider.swift */,
 				7FBE2AC729DA3D000006C3B2 /* DatabaseManager.swift */,
-				7FBE2AC929DA3D690006C3B2 /* RealObjectAdapter.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -384,6 +374,7 @@
 				7FBE2AA029D94BBC0006C3B2 /* Lesson.swift in Sources */,
 				7F2A67DD29D8782500238342 /* Fonts.swift in Sources */,
 				7FDAA60829D856180096D888 /* ContentView.swift in Sources */,
+				7FBE2AD029DAC1070006C3B2 /* ClientAssetProtocol.swift in Sources */,
 				7FBE2ACE29DA408E0006C3B2 /* LessonRealmObject.swift in Sources */,
 				7FBE2AA929D967350006C3B2 /* LessonsRepository.swift in Sources */,
 				7F2A67E729D8981100238342 /* Image+Extension.swift in Sources */,
@@ -401,12 +392,13 @@
 				7F2A67E329D8820400238342 /* LessonListRow.swift in Sources */,
 				7FBE2AC629DA3CF00006C3B2 /* DatabaseProvider.swift in Sources */,
 				7F2A67E929D89D2800238342 /* Images.swift in Sources */,
-				7FBE2ACA29DA3D690006C3B2 /* RealObjectAdapter.swift in Sources */,
+				7FBE2ACA29DA3D690006C3B2 /* RealmObjectAdapter.swift in Sources */,
 				7FBE2AC829DA3D000006C3B2 /* DatabaseManager.swift in Sources */,
 				7FBE2AB129D97F0C0006C3B2 /* DependencyContainer.swift in Sources */,
 				7F2A67D529D8728100238342 /* Color+Extension.swift in Sources */,
 				7F2A67E529D8949900238342 /* Paddings.swift in Sources */,
 				7FBE2AB529D987F70006C3B2 /* LessonsRemoteRepository.swift in Sources */,
+				7FBE2AD229DAC1240006C3B2 /* ClientImage.swift in Sources */,
 				7FBE2A9C29D946A00006C3B2 /* Strings+Extension.swift in Sources */,
 				7FBE2A9529D8D8440006C3B2 /* LessonListTemplate.swift in Sources */,
 				7FBE2AA729D961F70006C3B2 /* NetworkRouter.swift in Sources */,

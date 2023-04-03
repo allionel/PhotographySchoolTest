@@ -17,17 +17,15 @@ struct LessonsRepositoryImp: LessonsRepository {
     private let remoteRepository: LessonsRemoteRepository
     private let localRepository: LessonsLocalRepository
     
-    init(remoteRepository: LessonsRemoteRepository, localRepository: LessonsLocalRepository = LessonsLocalRepositoryImp()) {
+    init(remoteRepository: LessonsRemoteRepository, localRepository: LessonsLocalRepository) {
         self.remoteRepository = remoteRepository
         self.localRepository = localRepository
     }
     
     func getLessons(result completion: @escaping LessonsResponse) {
-//        if true { // if connected to internet
-//            handleResponsOnline(result: completion)
-//        } else {
-//            handleResponsOffline(result: completion)
-//        }
+        remoteRepository.isNetworkReachable ?
+            (handleResponsOnline(result: completion)) :
+            (handleResponsOffline(result: completion))
     }
     
     private func handleResponsOnline(result completion: @escaping LessonsResponse) {
@@ -35,7 +33,9 @@ struct LessonsRepositoryImp: LessonsRepository {
             switch response {
             case .success(let data):
                 completion(.success(data))
-                localRepository.save(data: data)
+                DispatchQueue.global(qos: .background).async {
+                    saveInDatabase(with: data, completion: completion)
+                }
             case .failure(let error):
                 completion(.failure(.serverError(error)))
             }
@@ -50,6 +50,22 @@ struct LessonsRepositoryImp: LessonsRepository {
             case .failure(let error):
                 completion(.failure(.localError(error)))
             }
+        }
+    }
+    
+    private func saveInDatabase(with data: Lessons, completion: @escaping LessonsResponse) {
+        do {
+            try localRepository.save(data: data) { result in
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(.localError(error)))
+                }
+            }
+        } catch(let error) {
+            let localError: LocalError = error as? LocalError ?? .unknown
+            completion(.failure(.localError(localError)))
         }
     }
 }

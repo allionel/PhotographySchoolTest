@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 protocol APIClient {
+    var isNetworkReachable: Bool { get }
     func request<T>(_: URLRequestConvertible, result: @escaping (Result<T, ServerError>) -> Void) where T: Decodable, T: Encodable
 }
 
@@ -27,6 +28,10 @@ final class NetworkManager {
 }
 
 extension NetworkManager: APIClient {
+    var isNetworkReachable: Bool {
+        NetworkReachabilityManager()?.isReachable ?? false
+    }
+    
     func request<T>(_ endpoint: Alamofire.URLRequestConvertible, result: @escaping (Result<T, ServerError>) -> Void) where T : Decodable, T : Encodable {
         guard let urlRequest = try? endpoint.asURLRequest() else {
             result(.failure(ServerError.invalidRequest))

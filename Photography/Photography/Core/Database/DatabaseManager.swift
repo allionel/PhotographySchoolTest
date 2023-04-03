@@ -22,48 +22,44 @@ extension DatabaseManager: DatabaseProvider {
         return realm?.configuration.fileURL
     }
 
-    public func save<T>(_ object: T) where T: RealObjectAdapter {
+    public func save<T>(_ object: T) throws where T: RealmObjectAdapter {
         do {
             let realm = try Realm()
-            try realm.write({
-                realm.add(object.managedObject(), update: .all)
-            })
+            do {
+                try realm.write {
+                    realm.add(object.managedObject(), update: .modified)
+                }
+            } catch {
+                throw LocalError.unableToSave
+            }
         } catch {
-            log(error: error)
+            throw LocalError.accessDenied
         }
     }
 
-    public func load<T>() -> [T] where T: RealObjectAdapter {
+    public func fetch<T>() throws -> [T] where T: RealmObjectAdapter {
         do {
             let realm = try Realm()
             let managedObjects = realm.objects(T.ManagedObject.self)
             return managedObjects.map(T.init(managedObject:))
         } catch {
-            log(error: error)
-            return []
+            throw LocalError.accessDenied
         }
     }
 
     @discardableResult
-    public func delete<T>(_ object: T) -> T where T: RealObjectAdapter {
+    public func delete<T>(_ object: T) throws -> T where T: RealmObjectAdapter {
         do {
             let realm = try Realm()
-            let managedObject = realm.objects(T.ManagedObject.self).filter({
+            let managedObject = realm.objects(T.ManagedObject.self).filter {
                 $0.pk == object.managedObject().pk
-            })
+            }
             try realm.write {
                 realm.delete(managedObject)
             }
             return object
         } catch {
-            log(error: error)
-            return object
+            throw LocalError.accessDenied
         }
-    }
-
-    private func log(error: Error) {
-        #if DEBUG
-        print("@Relam_Error", error.localizedDescription)
-        #endif
     }
 }

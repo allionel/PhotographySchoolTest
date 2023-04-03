@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum LocalError: Int, Error {
-    typealias RawValue = Int
+public enum LocalError: Int, Error {
+    public typealias RawValue = Int
     case accessDenied
     case unableToSave
     case unableToFetch

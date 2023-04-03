@@ -12,11 +12,11 @@ public protocol DatabaseProvider {
     // Returns path to database or configuration file
     var fileURL: URL? { get }
 
-    func save<T: RealObjectAdapter>(_ object: T)
+    func save<T: RealmObjectAdapter>(_ object: T) throws
 
-    func load<T: RealObjectAdapter>() -> [T]
+    func fetch<T: RealmObjectAdapter>() throws -> [T]
 
     @discardableResult
-    func delete<T: RealObjectAdapter>(_ object: T) -> T
+    func delete<T: RealmObjectAdapter>(_ object: T) throws -> T
 }
 

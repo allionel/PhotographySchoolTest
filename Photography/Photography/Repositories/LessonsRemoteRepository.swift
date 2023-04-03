@@ -8,6 +8,7 @@
 import Foundation
 
 protocol LessonsRemoteRepository {
+    var isNetworkReachable: Bool { get }
     func getRemoteLessons(result: @escaping (Result<Lessons, ServerError>) -> Void)
 }
 
@@ -16,6 +17,10 @@ struct LessonsRemoteRepositoryImp: LessonsRemoteRepository {
     
     init(client: APIClient) {
         self.client = client
+    }
+    
+    var isNetworkReachable: Bool {
+        client.isNetworkReachable
     }
     
     func getRemoteLessons(result: @escaping (Result<Lessons, ServerError>) -> Void) {
