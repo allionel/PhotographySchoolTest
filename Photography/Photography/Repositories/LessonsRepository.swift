@@ -7,10 +7,9 @@
 
 import Foundation
 
-typealias LessonsResponse = (Result<Lessons, ClientError>) -> Void
-
 protocol LessonsRepository {
     func getLessons(result completion: @escaping LessonsResponse)
+    func getImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void)
 }
 
 struct LessonsRepositoryImp: LessonsRepository {
@@ -26,6 +25,10 @@ struct LessonsRepositoryImp: LessonsRepository {
         remoteRepository.isNetworkReachable ?
             (handleResponsOnline(result: completion)) :
             (handleResponsOffline(result: completion))
+    }
+    
+    func getImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void) {
+        
     }
     
     private func handleResponsOnline(result completion: @escaping LessonsResponse) {

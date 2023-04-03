@@ -25,6 +25,7 @@ struct LessonListRow: View {
     private var rowHeight: CGFloat {
         imageWidth * 56 / 100 + (2 * CGFloat.verticalPadding)
     }
+    
     var body: some View {
         HStack(spacing: .horizontalPadding) {
             makeListImage()
@@ -45,9 +46,9 @@ struct LessonListRow: View {
     
     private func makeListImage() -> some View {
         VStack {
-            RemoteImage(path: imagePath)
-                .frame(width: imageWidth)
-                .cornerRadius(.corneRadius)
+//            RemoteImage(path: imagePath)
+//                .frame(width: imageWidth)
+//                .cornerRadius(.corneRadius)
         }
     }
     
@@ -80,6 +81,6 @@ struct LessonListRow_Previews: PreviewProvider {
             )
         }
         .background(Color.background)
-        .frame(height: 300)
+//        .frame(height: 300)
     }
 }

@@ -16,6 +16,7 @@
 		7F2A67E529D8949900238342 /* Paddings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A67E429D8949900238342 /* Paddings.swift */; };
 		7F2A67E729D8981100238342 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A67E629D8981100238342 /* Image+Extension.swift */; };
 		7F2A67E929D89D2800238342 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A67E829D89D2800238342 /* Images.swift */; };
+		7F31762129DB42E60059BF29 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31762029DB42E60059BF29 /* LocalFileManager.swift */; };
 		7FBE2A9529D8D8440006C3B2 /* LessonListTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2A9429D8D8440006C3B2 /* LessonListTemplate.swift */; };
 		7FBE2A9829D9457D0006C3B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE2A9729D9457D0006C3B2 /* Localizable.strings */; };
 		7FBE2A9A29D945EB0006C3B2 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2A9929D945EB0006C3B2 /* Strings.swift */; };
@@ -41,6 +42,8 @@
 		7FBE2ACE29DA408E0006C3B2 /* LessonRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ACD29DA408E0006C3B2 /* LessonRealmObject.swift */; };
 		7FBE2AD029DAC1070006C3B2 /* ClientAssetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ACF29DAC1070006C3B2 /* ClientAssetProtocol.swift */; };
 		7FBE2AD229DAC1240006C3B2 /* ClientImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AD129DAC1240006C3B2 /* ClientImage.swift */; };
+		7FBE2AD429DAC5FA0006C3B2 /* LessonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AD329DAC5FA0006C3B2 /* LessonsViewModel.swift */; };
+		7FBE2AD629DAC9940006C3B2 /* LessonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AD529DAC9940006C3B2 /* LessonsService.swift */; };
 		7FC06E8C29D8CF0200CB7F1C /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC06E8B29D8CF0200CB7F1C /* RemoteImage.swift */; };
 		7FDAA60629D856180096D888 /* PhotographyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAA60529D856180096D888 /* PhotographyApp.swift */; };
 		7FDAA60829D856180096D888 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAA60729D856180096D888 /* ContentView.swift */; };
@@ -57,6 +60,7 @@
 		7F2A67E429D8949900238342 /* Paddings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paddings.swift; sourceTree = "<group>"; };
 		7F2A67E629D8981100238342 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		7F2A67E829D89D2800238342 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		7F31762029DB42E60059BF29 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		7FBE2A9429D8D8440006C3B2 /* LessonListTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListTemplate.swift; sourceTree = "<group>"; };
 		7FBE2A9729D9457D0006C3B2 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		7FBE2A9929D945EB0006C3B2 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -80,6 +84,9 @@
 		7FBE2ACD29DA408E0006C3B2 /* LessonRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRealmObject.swift; sourceTree = "<group>"; };
 		7FBE2ACF29DAC1070006C3B2 /* ClientAssetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAssetProtocol.swift; sourceTree = "<group>"; };
 		7FBE2AD129DAC1240006C3B2 /* ClientImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientImage.swift; sourceTree = "<group>"; };
+		7FBE2AD329DAC5FA0006C3B2 /* LessonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsViewModel.swift; sourceTree = "<group>"; };
+		7FBE2AD529DAC9940006C3B2 /* LessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsService.swift; sourceTree = "<group>"; };
+		7FBE2AD729DAD3400006C3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FC06E8B29D8CF0200CB7F1C /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		7FDAA60229D856180096D888 /* Photography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photography.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FDAA60529D856180096D888 /* PhotographyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyApp.swift; sourceTree = "<group>"; };
@@ -109,6 +116,7 @@
 				7F2A67D829D8769A00238342 /* Extensions */,
 				7F2A67D929D876A400238342 /* Constants */,
 				7FBE2AB029D97F0C0006C3B2 /* DependencyContainer.swift */,
+				7F31762029DB42E60059BF29 /* LocalFileManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 			children = (
 				7F2A67EB29D8A8E400238342 /* Components */,
 				7F2A67D129D8650A00238342 /* LessonListView.swift */,
+				7FBE2AD329DAC5FA0006C3B2 /* LessonsViewModel.swift */,
 			);
 			path = LessonList;
 			sourceTree = "<group>";
@@ -174,6 +183,7 @@
 		7FBE2A9629D945300006C3B2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7FBE2AD729DAD3400006C3B2 /* Info.plist */,
 				7FDAA60929D856190096D888 /* Assets.xcassets */,
 				7FBE2A9729D9457D0006C3B2 /* Localizable.strings */,
 			);
@@ -223,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				7FBE2AAE29D97D5A0006C3B2 /* ServicesDependencyContainer.swift */,
+				7FBE2AD529DAC9940006C3B2 /* LessonsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -379,6 +390,8 @@
 				7FBE2AA929D967350006C3B2 /* LessonsRepository.swift in Sources */,
 				7F2A67E729D8981100238342 /* Image+Extension.swift in Sources */,
 				7FBE2AA329D95AF20006C3B2 /* NetworkManager.swift in Sources */,
+				7FBE2AD429DAC5FA0006C3B2 /* LessonsViewModel.swift in Sources */,
+				7F31762129DB42E60059BF29 /* LocalFileManager.swift in Sources */,
 				7FBE2AAF29D97D5A0006C3B2 /* ServicesDependencyContainer.swift in Sources */,
 				7F2A67D729D8731100238342 /* Colors.swift in Sources */,
 				7FBE2AB729D988160006C3B2 /* LessonsLocalRepository.swift in Sources */,
@@ -390,6 +403,7 @@
 				7F2A67D229D8650A00238342 /* LessonListView.swift in Sources */,
 				7FBE2A9A29D945EB0006C3B2 /* Strings.swift in Sources */,
 				7F2A67E329D8820400238342 /* LessonListRow.swift in Sources */,
+				7FBE2AD629DAC9940006C3B2 /* LessonsService.swift in Sources */,
 				7FBE2AC629DA3CF00006C3B2 /* DatabaseProvider.swift in Sources */,
 				7F2A67E929D89D2800238342 /* Images.swift in Sources */,
 				7FBE2ACA29DA3D690006C3B2 /* RealmObjectAdapter.swift in Sources */,
@@ -532,9 +546,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Photography/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Photography/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -565,9 +580,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Photography/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Photography/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

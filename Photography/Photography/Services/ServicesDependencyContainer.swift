@@ -13,4 +13,8 @@ final class ServicesDependencyContainer {
     init(client: APIClient = NetworkManager(), database: DatabaseProvider = DatabaseManager.shared) {
         repositories = .init(client: client, database: database)
     }
+    
+    lazy var lessons: LessonsService = {
+        LessonsServiceImp(network: repositories.lessonsRepository)
+    }()
 }

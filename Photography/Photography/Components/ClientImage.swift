@@ -16,7 +16,7 @@ struct ClientImage: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
         } else {
-            RemoteImage(path: asset.thumbnail)
+//            RemoteImage(path: asset.thumbnail)
         }
     }
 }
