@@ -8,6 +8,11 @@
 import Foundation
 import class UIKit.UIImage
 
+protocol FileManagerImageProvider {
+    func saveImage(with data: Data, name: String)
+    func getImage(name: String) -> UIImage?
+}
+
 final class LocalFileManager: Singleton {
     static var shared: LocalFileManager = .init()
     private init() { }
@@ -18,6 +23,24 @@ final class LocalFileManager: Singleton {
         writeToFile(with: data, fileURL: fileURL)
     }
     
+    private func writeToFile(with data: Data, fileURL: URL) {
+        do {
+            try data.write(to: fileURL)
+        } catch let error {
+            #if DEBUG
+            debugPrint("Error saving message", error)
+            #endif
+        }
+    }
+    
+    private func getUrlForImage(imageName: String) -> URL? {
+        guard let documentDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
+        let fileURL = documentDirectory.appendingPathComponent(imageName + ".jpg")
+        return fileURL
+    }
+}
+
+extension LocalFileManager: FileManagerImageProvider {
     func getImage(name: String) -> UIImage? {
         guard
             let fileURL = getUrlForImage(imageName: name),
@@ -36,21 +59,5 @@ final class LocalFileManager: Singleton {
             print("couldn't create dir at path", error)
             #endif
         }
-    }
-    
-    private func writeToFile(with data: Data, fileURL: URL) {
-        do {
-            try data.write(to: fileURL)
-        } catch let error {
-            #if DEBUG
-            debugPrint("Error saving message", error)
-            #endif
-        }
-    }
-    
-    private func getUrlForImage(imageName: String) -> URL? {
-        guard let documentDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
-        let fileURL = documentDirectory.appendingPathComponent(imageName + ".jpg")
-        return fileURL
     }
 }

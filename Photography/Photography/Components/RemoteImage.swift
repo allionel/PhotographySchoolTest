@@ -46,12 +46,16 @@ struct RemoteImageView: View {
 //}
 
 final class RemoteImageViewModel: ObservableObject {
-    let urlString: String
-    let service: LessonsService
+    private let urlString: String
+    private let service: LessonsService
+    private let fileManager: FileManagerImageProvider
     
-    init(urlString: String, service: LessonsService = DependencyContainer.shared.services.lessons) {
+    init(urlString: String,
+         service: LessonsService = DependencyContainer.shared.services.lessons,
+         fileManager: FileManagerImageProvider = LocalFileManager.shared) {
         self.urlString = urlString
         self.service = service
+        self.fileManager = fileManager
         fetchImage()
     }
     
