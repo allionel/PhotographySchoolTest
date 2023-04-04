@@ -44,7 +44,7 @@ extension LessonsRemoteRepositoryImp {
         var path: String {
             switch self {
             case .getLessons:
-                return "lessons/"
+                return "lessons"
             }
         }
     }

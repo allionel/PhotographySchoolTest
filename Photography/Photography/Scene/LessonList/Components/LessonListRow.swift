@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LessonListRow: View {
-    let imagePath: String
+    @StateObject var imageViewModel: ClientImageViewModel
     let title: String
     
     private var screenWidth: CGFloat {
@@ -46,9 +46,9 @@ struct LessonListRow: View {
     
     private func makeListImage() -> some View {
         VStack {
-//            RemoteImage(path: imagePath)
-//                .frame(width: imageWidth)
-//                .cornerRadius(.corneRadius)
+            ClientImageView(viewModel: imageViewModel)
+                .frame(width: imageWidth)
+                .cornerRadius(.corneRadius)
         }
     }
     
@@ -75,12 +75,10 @@ struct LessonListRow: View {
 struct LessonListRow_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            LessonListRow(
-                imagePath: "https://embed-ssl.wistia.com/deliveries/b57817b5b05c3e3129b7071eee83ecb7.jpg?image_crop_resized=1000x560",
-                title: "How To Choose The Correct iPhone Camera Lens How To Choose The Correct iPhone Camera Lens"
-            )
+            let urlPath = "https://embed-ssl.wistia.com/deliveries/b57817b5b05c3e3129b7071eee83ecb7.jpg?image_crop_resized=1000x560"
+            LessonListRow(imageViewModel: .init(urlString: urlPath, imageName: .constant("new_image")), title: "Header")
         }
         .background(Color.background)
-//        .frame(height: 300)
+        .frame(height: 300)
     }
 }

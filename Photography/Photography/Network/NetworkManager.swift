@@ -17,13 +17,15 @@ protocol APIClient {
 final class NetworkManager {
     private let sessionManager: Session
     private let decoder: JSONDecoder
+    private let interceptor = Interceptor()
     
     required init() {
-        let config = URLSessionConfiguration.af.default
-        config.timeoutIntervalForRequest = 60
-        config.timeoutIntervalForResource = 60
+        let configuration = URLSessionConfiguration.af.default
+        configuration.timeoutIntervalForRequest = 30
+        configuration.timeoutIntervalForResource = 30
+        configuration.waitsForConnectivity = true
         
-        sessionManager = .init(configuration: config)
+        sessionManager = .init(configuration: configuration, interceptor: interceptor)
         decoder = .init()
     }
 }

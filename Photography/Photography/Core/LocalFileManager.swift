@@ -9,19 +9,14 @@ import Foundation
 import class UIKit.UIImage
 
 protocol FileManagerImageProvider {
+    func isImageAvailable(with name: String) -> Bool
     func saveImage(with data: Data, name: String)
-    func getImage(name: String) -> UIImage?
+    func getImage(with name: String) throws -> Data?
 }
 
 final class LocalFileManager: Singleton {
     static var shared: LocalFileManager = .init()
     private init() { }
-    
-    func saveImage(with data: Data, name: String) {
-        guard let fileURL = getUrlForImage(imageName: name) else { return }
-        createPathIfNotExist(with: fileURL)
-        writeToFile(with: data, fileURL: fileURL)
-    }
     
     private func writeToFile(with data: Data, fileURL: URL) {
         do {
@@ -41,23 +36,25 @@ final class LocalFileManager: Singleton {
 }
 
 extension LocalFileManager: FileManagerImageProvider {
-    func getImage(name: String) -> UIImage? {
-        guard
-            let fileURL = getUrlForImage(imageName: name),
-            FileManager.default.fileExists(atPath: fileURL.path)
-        else { return nil }
-        return .init(contentsOfFile: fileURL.path)
+    func isImageAvailable(with name: String) -> Bool {
+        guard let fileURL = getUrlForImage(imageName: name),
+              FileManager.default.fileExists(atPath: fileURL.path)
+        else { return false }
+        return true
     }
     
-    private func createPathIfNotExist(with fileURL: URL) {
-        do {
-            if !FileManager.default.fileExists(atPath: fileURL.path) {
-                try FileManager.default.createDirectory(at: fileURL, withIntermediateDirectories: true)
-            }
-        } catch let error {
-            #if DEBUG
-            print("couldn't create dir at path", error)
-            #endif
+    func saveImage(with data: Data, name: String) {
+        guard let fileURL = getUrlForImage(imageName: name) else { return }
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.writeToFile(with: data, fileURL: fileURL)
         }
+    }
+    
+    func getImage(with name: String) throws -> Data? {
+        guard let fileURL = getUrlForImage(imageName: name) else { throw LocalError.unableToRead }
+        guard let image = UIImage(contentsOfFile: fileURL.path),
+              let data = image.jpegData(compressionQuality: 1) else { throw LocalError.imageProcessFailed }
+        guard FileManager.default.fileExists(atPath: fileURL.path) else { throw LocalError.notAvailable }
+        return data
     }
 }

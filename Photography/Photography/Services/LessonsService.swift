@@ -11,7 +11,6 @@ typealias LessonsResponse = (Result<Lessons, ClientError>) -> Void
 
 protocol LessonsService {
     func getLessons(result completion: @escaping LessonsResponse)
-    func getImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void)
 }
 
 struct LessonsServiceImp: LessonsService {
@@ -23,9 +22,5 @@ struct LessonsServiceImp: LessonsService {
 
     func getLessons(result completion: @escaping LessonsResponse) {
         network.getLessons(result: completion)
-    }
-    
-    func getImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void) {
-        network.getImage(urlString: urlString, result: result)
     }
 }

@@ -12,5 +12,9 @@ public enum LocalError: Int, Error {
     case accessDenied
     case unableToSave
     case unableToFetch
+    case unableToRead
+    case notAvailable
+    case imageProcessFailed
+    case outputProcessFailed
     case unknown
 }

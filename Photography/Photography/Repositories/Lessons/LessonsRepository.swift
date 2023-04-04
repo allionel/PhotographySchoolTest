@@ -9,26 +9,21 @@ import Foundation
 
 protocol LessonsRepository {
     func getLessons(result completion: @escaping LessonsResponse)
-    func getImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void)
 }
 
 struct LessonsRepositoryImp: LessonsRepository {
-    private let remoteRepository: LessonsRemoteRepository
     private let localRepository: LessonsLocalRepository
+    private let remoteRepository: LessonsRemoteRepository
     
-    init(remoteRepository: LessonsRemoteRepository, localRepository: LessonsLocalRepository) {
-        self.remoteRepository = remoteRepository
+    init(localRepository: LessonsLocalRepository, remoteRepository: LessonsRemoteRepository) {
         self.localRepository = localRepository
+        self.remoteRepository = remoteRepository
     }
     
     func getLessons(result completion: @escaping LessonsResponse) {
         remoteRepository.isNetworkReachable ?
             (handleResponsOnline(result: completion)) :
             (handleResponsOffline(result: completion))
-    }
-    
-    func getImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void) {
-        
     }
     
     private func handleResponsOnline(result completion: @escaping LessonsResponse) {

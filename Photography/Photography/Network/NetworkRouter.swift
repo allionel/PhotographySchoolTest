@@ -23,7 +23,7 @@ protocol NetworkRouter: URLRequestConvertible {
 
 extension NetworkRouter {
     var baseURLString: String? {
-        return "https://phonephotographyschool.com/test-api/"
+        return "https://iphonephotographyschool.com/test-api/"
     }
 
     // Add Rout method here
@@ -60,7 +60,11 @@ extension NetworkRouter {
         urlRequest.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
         
         if method == .get {
-            urlRequest = try URLEncoding.queryString.encode(urlRequest, with: params)
+            do {
+                urlRequest = try URLEncoding.queryString.encode(urlRequest, with: params)
+            } catch {
+                print(error)
+            }
         } else {
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: params ?? [:], options: .prettyPrinted)
         }
