@@ -15,7 +15,7 @@ struct LessonListTemplate: View {
         List {
             ForEach(data) { data in
                 NavigationLink {
-                    LessonDetailView()
+                    LessonDetailView(viewModel: .init(lesson: data))
                         .edgesIgnoringSafeArea(.all)
                 } label: {
                     LessonListRow(imageViewModel: .init(urlString: data.thumbnail, imageName: .constant(data.id.toString)), title: data.name)
@@ -23,7 +23,6 @@ struct LessonListTemplate: View {
                 }
                 .listRowBackground(Color.clear)
                 .listRowSeparatorTint(Color.border)
-                
             }
         }
         .listStyle(.plain)

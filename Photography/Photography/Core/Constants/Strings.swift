@@ -17,4 +17,6 @@ public extension String {
     // Images
     static let chevronRight = "chevron.right"
     static let downloadIcon = "icloud.and.arrow.down"
+    static let playIcon = "play.fill"
 }
+
