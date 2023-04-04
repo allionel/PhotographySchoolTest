@@ -16,6 +16,8 @@
 		7F2A67E529D8949900238342 /* Paddings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A67E429D8949900238342 /* Paddings.swift */; };
 		7F2A67E729D8981100238342 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A67E629D8981100238342 /* Image+Extension.swift */; };
 		7F2A67E929D89D2800238342 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A67E829D89D2800238342 /* Images.swift */; };
+		7F2B248729DBCC6B00D77589 /* LessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B248629DBCC6B00D77589 /* LessonDetailViewController.swift */; };
+		7F2B248929DBD8FD00D77589 /* LessonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B248829DBD8FD00D77589 /* LessonDetailView.swift */; };
 		7F31762129DB42E60059BF29 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31762029DB42E60059BF29 /* LocalFileManager.swift */; };
 		7F31762529DB51ED0059BF29 /* AssetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31762429DB51ED0059BF29 /* AssetRepository.swift */; };
 		7F31762829DB51FF0059BF29 /* AssetLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31762729DB51FF0059BF29 /* AssetLocalRepository.swift */; };
@@ -65,6 +67,8 @@
 		7F2A67E429D8949900238342 /* Paddings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paddings.swift; sourceTree = "<group>"; };
 		7F2A67E629D8981100238342 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		7F2A67E829D89D2800238342 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		7F2B248629DBCC6B00D77589 /* LessonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailViewController.swift; sourceTree = "<group>"; };
+		7F2B248829DBD8FD00D77589 /* LessonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailView.swift; sourceTree = "<group>"; };
 		7F31762029DB42E60059BF29 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		7F31762429DB51ED0059BF29 /* AssetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetRepository.swift; sourceTree = "<group>"; };
 		7F31762729DB51FF0059BF29 /* AssetLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetLocalRepository.swift; sourceTree = "<group>"; };
@@ -157,8 +161,8 @@
 		7F2A67DE29D8815F00238342 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				7F2A67EA29D8A8D200238342 /* LessonList */,
-				7FBE2AA129D94D300006C3B2 /* LessonDetail */,
+				7F2B248429DBCC3200D77589 /* SwiftUI */,
+				7F2B248529DBCC4900D77589 /* UIKit */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -188,6 +192,22 @@
 				7FBE2A9429D8D8440006C3B2 /* LessonListTemplate.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		7F2B248429DBCC3200D77589 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				7F2A67EA29D8A8D200238342 /* LessonList */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		7F2B248529DBCC4900D77589 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE2AA129D94D300006C3B2 /* LessonDetail */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		7F31762229DB51BA0059BF29 /* Lessons */ = {
@@ -253,6 +273,8 @@
 		7FBE2AA129D94D300006C3B2 /* LessonDetail */ = {
 			isa = PBXGroup;
 			children = (
+				7F2B248629DBCC6B00D77589 /* LessonDetailViewController.swift */,
+				7F2B248829DBD8FD00D77589 /* LessonDetailView.swift */,
 			);
 			path = LessonDetail;
 			sourceTree = "<group>";
@@ -443,6 +465,7 @@
 				7FBE2ACC29DA3E370006C3B2 /* Singleton.swift in Sources */,
 				7FBE2AAB29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift in Sources */,
 				7FBE2ABE29DA02280006C3B2 /* ClientError.swift in Sources */,
+				7F2B248729DBCC6B00D77589 /* LessonDetailViewController.swift in Sources */,
 				7F2A67D229D8650A00238342 /* LessonListView.swift in Sources */,
 				7FBE2A9A29D945EB0006C3B2 /* Strings.swift in Sources */,
 				7F2A67E329D8820400238342 /* LessonListRow.swift in Sources */,
@@ -454,6 +477,7 @@
 				7FBE2AB129D97F0C0006C3B2 /* DependencyContainer.swift in Sources */,
 				7F2A67D529D8728100238342 /* Color+Extension.swift in Sources */,
 				7F2A67E529D8949900238342 /* Paddings.swift in Sources */,
+				7F2B248929DBD8FD00D77589 /* LessonDetailView.swift in Sources */,
 				7F31762C29DB57690059BF29 /* AssetsService.swift in Sources */,
 				7FBE2AB529D987F70006C3B2 /* LessonsRemoteRepository.swift in Sources */,
 				7FBE2A9C29D946A00006C3B2 /* Strings+Extension.swift in Sources */,

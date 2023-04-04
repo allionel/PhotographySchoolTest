@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LessonListView: View {
     @ObservedObject var viewModel: LessonsViewModel
-
+    @State private var nextPage: Bool = false
     init() {
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.caption]
@@ -17,7 +17,7 @@ struct LessonListView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color
                     .background
