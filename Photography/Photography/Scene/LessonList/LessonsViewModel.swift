@@ -11,7 +11,8 @@ import SwiftUI
 final class LessonsViewModel: ObservableObject {
     @Published var lessons: [Lesson] = []
     @Published var errorText: String = ""
-//    @Published var imageViewModel: ClientImageViewModel
+    @Published var isLoading: Bool = true
+
     let service: LessonsService
     
     init(service: LessonsService = DependencyContainer.shared.services.lessons) {
@@ -26,6 +27,7 @@ final class LessonsViewModel: ObservableObject {
             case let .success(data):
                 DispatchQueue.main.async {
                     self.lessons = data.lessons
+                    self.isLoading = false
                 }
             case let .failure(error):
                 self.errorText = error.errorDescription

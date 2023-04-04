@@ -22,7 +22,12 @@ struct LessonListView: View {
                 Color
                     .background
                     .ignoresSafeArea()
-                LessonListTemplate(data: viewModel.lessons)
+                if viewModel.isLoading {
+                    ProgressView()
+                        .tint(Color.surface)
+                } else {
+                    LessonListTemplate(data: viewModel.lessons)
+                }
             }
             .navigationBarTitleDisplayMode(.large)
             .navigationTitle(String.lessonsPageTitle.localized)
