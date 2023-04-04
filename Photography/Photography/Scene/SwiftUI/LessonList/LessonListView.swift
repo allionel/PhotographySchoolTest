@@ -17,7 +17,7 @@ struct LessonListView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ZStack {
                 Color
                     .background

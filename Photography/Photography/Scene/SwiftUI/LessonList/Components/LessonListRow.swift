@@ -23,7 +23,7 @@ struct LessonListRow: View {
     // The scale of the pic is 560:1000
     //
     private var rowHeight: CGFloat {
-        imageWidth * 56 / 100 + (2 * CGFloat.verticalPadding)
+        imageWidth * 56 / 100 + (2 * CGFloat.interlineSpacing)
     }
     
     var body: some View {
@@ -59,7 +59,7 @@ struct LessonListRow: View {
     }
     
     private func makeArrow() -> some View {
-        Image(name: .chevronRight)
+        Image(systemName: .chevronRight)
             .foregroundColor(.action)
     }
     

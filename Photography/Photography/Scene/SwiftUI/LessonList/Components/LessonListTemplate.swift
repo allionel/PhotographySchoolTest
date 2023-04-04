@@ -14,15 +14,22 @@ struct LessonListTemplate: View {
     var body: some View {
         List {
             ForEach(data) { data in
-                LessonListRow(imageViewModel: .init(urlString: data.thumbnail, imageName: .constant(data.id.toString)), title: data.name)
-                    .listRowBackground(Color.clear)
-                    .onTapGesture {
-                        nextPage = true
-                    }
-                    .navigationDestination(isPresented: $nextPage) {
-                        LessonDetailView()
-                            .edgesIgnoringSafeArea(.all)
-                    }
+                NavigationLink {
+                    LessonDetailView()
+                        .edgesIgnoringSafeArea(.all)
+                } label: {
+                    LessonListRow(imageViewModel: .init(urlString: data.thumbnail, imageName: .constant(data.id.toString)), title: data.name)
+                        .listRowBackground(Color.clear)
+//                        .onTapGesture {
+//                            nextPage = true
+//                        }
+//                        .navigationDestination(isPresented: $nextPage) {
+//                            LessonDetailView()
+//                                .edgesIgnoringSafeArea(.all)
+//                        }
+                }.listRowBackground(Color.clear)
+
+                
             }
         }
         .listStyle(.plain)

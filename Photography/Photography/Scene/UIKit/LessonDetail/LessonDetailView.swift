@@ -12,5 +12,5 @@ struct LessonDetailView: UIViewControllerRepresentable {
         return LessonDetailViewController()
     }
 
-    func updateUIViewController(_ uiViewController: LessonDetailViewController, context: Context) {    }
+    func updateUIViewController(_ uiViewController: LessonDetailViewController, context: Context) { }
 }

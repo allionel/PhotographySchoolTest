@@ -273,8 +273,8 @@
 		7FBE2AA129D94D300006C3B2 /* LessonDetail */ = {
 			isa = PBXGroup;
 			children = (
-				7F2B248629DBCC6B00D77589 /* LessonDetailViewController.swift */,
 				7F2B248829DBD8FD00D77589 /* LessonDetailView.swift */,
+				7F2B248629DBCC6B00D77589 /* LessonDetailViewController.swift */,
 			);
 			path = LessonDetail;
 			sourceTree = "<group>";

@@ -8,7 +8,7 @@
 import Foundation
 
 public extension ImageName {
-    static let download: ImageName = "download"
-    static let chevronRight: ImageName = "chevron-right"
+//    static let download: ImageName = "download"
+//    static let chevronRight: ImageName = "chevron-right"
     static let placeholder: ImageName = "image-placeholder"
 }
