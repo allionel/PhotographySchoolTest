@@ -19,16 +19,10 @@ struct LessonListTemplate: View {
                         .edgesIgnoringSafeArea(.all)
                 } label: {
                     LessonListRow(imageViewModel: .init(urlString: data.thumbnail, imageName: .constant(data.id.toString)), title: data.name)
-                        .listRowBackground(Color.clear)
-//                        .onTapGesture {
-//                            nextPage = true
-//                        }
-//                        .navigationDestination(isPresented: $nextPage) {
-//                            LessonDetailView()
-//                                .edgesIgnoringSafeArea(.all)
-//                        }
-                }.listRowBackground(Color.clear)
-
+                        .padding(.trailing, -19)
+                }
+                .listRowBackground(Color.clear)
+                .listRowSeparatorTint(Color.border)
                 
             }
         }

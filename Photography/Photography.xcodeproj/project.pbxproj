@@ -25,6 +25,8 @@
 		7F31762C29DB57690059BF29 /* AssetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31762B29DB57690059BF29 /* AssetsService.swift */; };
 		7F31762F29DB62A00059BF29 /* ClientImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31762E29DB62A00059BF29 /* ClientImageViewModel.swift */; };
 		7F31763129DB691F0059BF29 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31763029DB691F0059BF29 /* Int+Extension.swift */; };
+		7F8FA46129DC261C00631E67 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8FA46029DC261C00631E67 /* UIView+Extension.swift */; };
+		7F8FA46529DC26C800631E67 /* DownloadBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8FA46429DC26C800631E67 /* DownloadBarButton.swift */; };
 		7FBE2A9529D8D8440006C3B2 /* LessonListTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2A9429D8D8440006C3B2 /* LessonListTemplate.swift */; };
 		7FBE2A9829D9457D0006C3B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE2A9729D9457D0006C3B2 /* Localizable.strings */; };
 		7FBE2A9A29D945EB0006C3B2 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2A9929D945EB0006C3B2 /* Strings.swift */; };
@@ -76,6 +78,8 @@
 		7F31762B29DB57690059BF29 /* AssetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsService.swift; sourceTree = "<group>"; };
 		7F31762E29DB62A00059BF29 /* ClientImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientImageViewModel.swift; sourceTree = "<group>"; };
 		7F31763029DB691F0059BF29 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		7F8FA46029DC261C00631E67 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		7F8FA46429DC26C800631E67 /* DownloadBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBarButton.swift; sourceTree = "<group>"; };
 		7FBE2A9429D8D8440006C3B2 /* LessonListTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListTemplate.swift; sourceTree = "<group>"; };
 		7FBE2A9729D9457D0006C3B2 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		7FBE2A9929D945EB0006C3B2 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 		7F2A67D829D8769A00238342 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7F8FA46029DC261C00631E67 /* UIView+Extension.swift */,
 				7F2A67D429D8728100238342 /* Color+Extension.swift */,
 				7F2A67E629D8981100238342 /* Image+Extension.swift */,
 				7FBE2A9B29D946A00006C3B2 /* Strings+Extension.swift */,
@@ -170,7 +175,8 @@
 		7F2A67E129D881DC00238342 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7F31762D29DB62840059BF29 /* Client Image */,
+				7F8FA46229DC26AA00631E67 /* SwiftUI */,
+				7F8FA46329DC26B500631E67 /* UIKit */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -237,6 +243,22 @@
 				7F31762E29DB62A00059BF29 /* ClientImageViewModel.swift */,
 			);
 			path = "Client Image";
+			sourceTree = "<group>";
+		};
+		7F8FA46229DC26AA00631E67 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				7F31762D29DB62840059BF29 /* Client Image */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		7F8FA46329DC26B500631E67 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				7F8FA46429DC26C800631E67 /* DownloadBarButton.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		7FBE2A9629D945300006C3B2 /* Resources */ = {
@@ -463,6 +485,7 @@
 				7FC06E8C29D8CF0200CB7F1C /* ClientImageView.swift in Sources */,
 				7FDAA60629D856180096D888 /* PhotographyApp.swift in Sources */,
 				7FBE2ACC29DA3E370006C3B2 /* Singleton.swift in Sources */,
+				7F8FA46129DC261C00631E67 /* UIView+Extension.swift in Sources */,
 				7FBE2AAB29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift in Sources */,
 				7FBE2ABE29DA02280006C3B2 /* ClientError.swift in Sources */,
 				7F2B248729DBCC6B00D77589 /* LessonDetailViewController.swift in Sources */,
@@ -481,6 +504,7 @@
 				7F31762C29DB57690059BF29 /* AssetsService.swift in Sources */,
 				7FBE2AB529D987F70006C3B2 /* LessonsRemoteRepository.swift in Sources */,
 				7FBE2A9C29D946A00006C3B2 /* Strings+Extension.swift in Sources */,
+				7F8FA46529DC26C800631E67 /* DownloadBarButton.swift in Sources */,
 				7FBE2A9529D8D8440006C3B2 /* LessonListTemplate.swift in Sources */,
 				7FBE2AA729D961F70006C3B2 /* NetworkRouter.swift in Sources */,
 				7F31762F29DB62A00059BF29 /* ClientImageViewModel.swift in Sources */,

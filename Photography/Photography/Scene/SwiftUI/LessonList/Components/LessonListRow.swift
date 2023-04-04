@@ -36,8 +36,6 @@ struct LessonListRow: View {
                         Spacer()
                         makeArrow()
                     }
-                    .padding(.vertical, .interlineSpacing)
-//                    makeDivider()
                 }
             }
         }
@@ -60,23 +58,18 @@ struct LessonListRow: View {
     
     private func makeArrow() -> some View {
         Image(systemName: .chevronRight)
+            .resizable()
             .foregroundColor(.action)
+            .frame(width: 6, height: 10)
+            .scaleEffect(1.2)
     }
-    
-//    private func makeDivider() -> some View {
-//        VStack {
-//            Spacer()
-//            Divider()
-//                .background(Color.border)
-//        }
-//    }
 }
 
 struct LessonListRow_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             let urlPath = "https://embed-ssl.wistia.com/deliveries/b57817b5b05c3e3129b7071eee83ecb7.jpg?image_crop_resized=1000x560"
-            LessonListRow(imageViewModel: .init(urlString: urlPath, imageName: .constant("new_image")), title: "Header")
+            LessonListRow(imageViewModel: .init(urlString: urlPath, imageName: .constant("new_image")), title: "Header Header Header Header Header Header Header Header Header Header Header")
         }
         .background(Color.background)
         .frame(height: 300)
