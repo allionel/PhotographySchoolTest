@@ -60,6 +60,7 @@
 		7FDAA60A29D856190096D888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FDAA60929D856190096D888 /* Assets.xcassets */; };
 		7FDAA60D29D856190096D888 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FDAA60C29D856190096D888 /* Preview Assets.xcassets */; };
 		7FDDD72329DCD99500572DD0 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72229DCD99500572DD0 /* VideoPlayer.swift */; };
+		7FDDD72529DD570500572DD0 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72429DD570500572DD0 /* CircularProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		7FDAA60929D856190096D888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FDAA60C29D856190096D888 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7FDDD72229DCD99500572DD0 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		7FDDD72429DD570500572DD0 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 		7F8FA46329DC26B500631E67 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				7FDDD72429DD570500572DD0 /* CircularProgressView.swift */,
 				7F8FA46429DC26C800631E67 /* DownloadBarButton.swift */,
 				7FDDD72229DCD99500572DD0 /* VideoPlayer.swift */,
 			);
@@ -479,6 +482,7 @@
 				7FBE2ACE29DA408E0006C3B2 /* LessonRealmObject.swift in Sources */,
 				7FBE2AA929D967350006C3B2 /* LessonsRepository.swift in Sources */,
 				7F2A67E729D8981100238342 /* Image+Extension.swift in Sources */,
+				7FDDD72529DD570500572DD0 /* CircularProgressView.swift in Sources */,
 				7FBE2AA329D95AF20006C3B2 /* NetworkManager.swift in Sources */,
 				7FBE2AD429DAC5FA0006C3B2 /* LessonsViewModel.swift in Sources */,
 				7F31762A29DB52120059BF29 /* AssetRemoteRepository.swift in Sources */,

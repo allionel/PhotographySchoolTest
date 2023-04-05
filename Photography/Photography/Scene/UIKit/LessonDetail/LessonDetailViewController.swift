@@ -7,11 +7,27 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 final class LessonDetailViewController: UIViewController {
     @ObservedObject private var viewModel: LessonDetailViewModel
     
     private let screenHeight: CGFloat = UIScreen.main.bounds.height
+    private var cancellable: [AnyCancellable] = []
+    
+    private lazy var progressView: CircularProgressView = {
+        let frame: CGRect = .init(origin: .zero, size: .init(width: 20, height: 20))
+        let view: CircularProgressView = .init(frame: frame)
+        view.progressColor = .systemBlue
+        view.trackColor = .darkGray
+        view.alpha = .zero
+        return view
+    }()
+    
+    private lazy var downloadBarButton: DownloadBarButton = {
+        let button = DownloadBarButton()
+        return button
+    }()
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -82,7 +98,8 @@ final class LessonDetailViewController: UIViewController {
         // Navigation needs to be ready because of transition from swiftui view
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
             setupUIElement()
-            setupBarButtonItem()
+            setupBarButtonItems()
+            setupDownloadProgress()
         }
     }
     
@@ -138,16 +155,28 @@ final class LessonDetailViewController: UIViewController {
         descriptionLabel.text = viewModel.lesson.description
     }
     
-    private func setupBarButtonItem() {
-        let button: DownloadBarButton = .init {
-            // did tap
+    private func setupBarButtonItems() {
+        let progreesItem: UIBarButtonItem = .init(customView: progressView)
+        let downloadItem: UIBarButtonItem = .init(customView: downloadBarButton)
+        downloadBarButton.didTap { [weak self] in
+            UIView.animate(withDuration: 0.3, delay: .zero) {
+                self?.progressView.alpha = 1
+                self?.navigationController?.navigationBar.layoutIfNeeded()
+                downloadItem.isHidden = true
+            }
         }
-        navigationController?.navigationItem.rightBarButtonItem = button
+        navigationController?.navigationItem.rightBarButtonItems = [downloadItem, progreesItem]
+    }
+
+    private func setupDownloadProgress() {
+        viewModel.$downloadProgress.sink { [weak self] progress in
+            self?.progressView.progress = Float(progress)
+        }.store(in: &cancellable)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        // To make self deinited 
+        // To make self deinited
         navigationController?.viewControllers = []
     }
 }
