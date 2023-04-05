@@ -9,8 +9,11 @@ import Foundation
 
 protocol AssetLocalRepository {
     func isImageAvailable(with name: String) -> Bool
+    func isVideoAvailable(with name: String) -> Bool
     func saveImage(with imageName: String, data: Data, completion: @escaping (Result<Data?, ClientError>) -> Void)
     func getLocalImage(imageName: String, completion: @escaping (Result<Data?, ClientError>) -> Void)
+    func saveVideo(with videoName: String, data: Data, completion: @escaping (Result<Data?, ClientError>) -> Void)
+    func getLocalVideo(videoName: String, completion: @escaping (Result<Data?, ClientError>) -> Void)
 }
 
 struct AssetLocalRepositoryImp: AssetLocalRepository {
@@ -35,5 +38,17 @@ struct AssetLocalRepositoryImp: AssetLocalRepository {
         } catch let error {
             completion(.failure(.localError(error as? LocalError ?? .unknown)))
         }
+    }
+    
+    func isVideoAvailable(with name: String) -> Bool {
+        false
+    }
+    
+    func saveVideo(with videoName: String, data: Data, completion: @escaping (Result<Data?, ClientError>) -> Void) {
+        
+    }
+    
+    func getLocalVideo(videoName: String, completion: @escaping (Result<Data?, ClientError>) -> Void) {
+        
     }
 }

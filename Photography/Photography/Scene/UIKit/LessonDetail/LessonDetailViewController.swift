@@ -79,6 +79,7 @@ final class LessonDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
+        // Navigation needs to be ready because of transition from swiftui view
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
             setupUIElement()
             setupBarButtonItem()
@@ -134,9 +135,7 @@ final class LessonDetailViewController: UIViewController {
         verticalStackView.addArrangedSubview(titleLabel)
         titleLabel.text = viewModel.lesson.name
         verticalStackView.addArrangedSubview(descriptionLabel)
-        let text = viewModel.lesson.description
-        descriptionLabel.text = text //+ text +  text + text + text + text
-        
+        descriptionLabel.text = viewModel.lesson.description
     }
     
     private func setupBarButtonItem() {
@@ -144,5 +143,11 @@ final class LessonDetailViewController: UIViewController {
             // did tap
         }
         navigationController?.navigationItem.rightBarButtonItem = button
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // To make self deinited 
+        navigationController?.viewControllers = []
     }
 }

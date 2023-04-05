@@ -10,20 +10,46 @@ import AVFoundation
 import AVKit
 
 final class VideoPlayerViewController: AVPlayerViewController {
+    private var avPlayer: AVPlayer?
     
-    private var videoPath: String = "" {
-        didSet { }
+    var videoPath: String  = "" {
+        didSet {
+            guard let url: URL = .init(string: videoPath) else { return }
+            avPlayer = .init(url: url)
+            player = avPlayer
+        }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if self.isMovingFromParent {
+          UIDevice.current.setValue(Int(UIInterfaceOrientation.portrait.rawValue), forKey: "orientation")
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        pause()
+        terminate()
+    }
+    
+    func play() {
+        avPlayer?.play()
+    }
+    
+    func pause() {
+        avPlayer?.pause()
+    }
+    
+    func terminate() {
+        avPlayer?.cancelPendingPrerolls()
     }
 }
 
 final class VideoPlayer: UIView {
     private lazy var playerControler: VideoPlayerViewController = .init()
-    private var player: AVPlayer?
+    
     private var onTapPlayButton: (() -> Void)?
     private let playButtonSize: CGFloat = 44
     
@@ -54,9 +80,7 @@ final class VideoPlayer: UIView {
     // Must be set to show the video
     var videoPath: String  = "" {
         didSet {
-            guard let url: URL = .init(string: videoPath) else { return }
-            player = .init(url: url)
-            playerControler.player = player
+            playerControler.videoPath = videoPath
         }
     }
     override init(frame: CGRect) {
@@ -98,7 +122,7 @@ final class VideoPlayer: UIView {
     
     private func setupPlayAction() {
         playButton.addAction { [weak self] in
-            self?.player?.play()
+            self?.playerControler.play()
             self?.playButton.isHidden = true
         }
     }

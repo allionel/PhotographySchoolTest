@@ -44,3 +44,18 @@ struct LessonListTemplate_Previews: PreviewProvider {
         .init(id: 22, name: "This is Number one", description: "", thumbnail: "https://embed-ssl.wistia.com/deliveries/f7105de283304e0dc6fe40e5abbf778f.jpg?image_crop_resized=1000x560", videoUrl: "")
     ]
 }
+
+
+/// Make delay loading of the resource until the view is on screen
+///
+public struct LazyView<Content: View>: View {
+    private let build: () -> Content
+    
+    public init(_ build: @autoclosure @escaping () -> Content) {
+        self.build = build
+    }
+    
+    public var body: Content {
+        build()
+    }
+}

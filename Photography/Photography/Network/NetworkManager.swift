@@ -7,17 +7,22 @@
 
 import Foundation
 import Alamofire
+import Combine
 
 protocol APIClient {
     var isNetworkReachable: Bool { get }
     func request<T>(_: URLRequestConvertible, result: @escaping (Result<T, ServerError>) -> Void) where T: Decodable, T: Encodable
-    func downloadImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void) 
+    func downloadImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void)
+    func downloadVideo(urlString: String, progress: PassthroughSubject<Double, Never>, result: @escaping (Result<Data?, ServerError>) -> Void)
 }
 
 final class NetworkManager {
     private let sessionManager: Session
     private let decoder: JSONDecoder
     private let interceptor = Interceptor()
+    
+    private let progressValue: PassthroughSubject<Double, Never> = .init()
+    private var cancellable: [AnyCancellable] = []
     
     required init() {
         let configuration = URLSessionConfiguration.af.default
@@ -71,6 +76,32 @@ extension NetworkManager: APIClient {
         sessionManager
             .request(urlRequest)
             .response { response in
+                switch response.result {
+                case let .success(data):
+                    result(.success(data))
+                case let .failure(error):
+                    result(.failure(ServerError(rawValue: error.responseCode ?? 1002) ?? ServerError.unknown))
+                }
+            }
+    }
+    
+    func downloadVideo(urlString: String, progress: PassthroughSubject<Double, Never>, result: @escaping (Result<Data?, ServerError>) -> Void)  {
+        guard let url = URL(string: urlString) else {
+            result(.failure(ServerError.invalidRequest))
+            return
+        }
+        let urlRequest: URLRequest = .init(url: url)
+
+        progressValue.sink { value in
+            progress.send(value)
+        }.store(in: &cancellable)
+        
+        sessionManager
+            .request(urlRequest)
+            .downloadProgress { [weak self] progress in
+                guard let self else { return }
+                self.progressValue.send(progress.fractionCompleted)
+            }.response { response in
                 switch response.result {
                 case let .success(data):
                     result(.success(data))
