@@ -61,6 +61,7 @@
 		7FDAA60D29D856190096D888 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FDAA60C29D856190096D888 /* Preview Assets.xcassets */; };
 		7FDDD72329DCD99500572DD0 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72229DCD99500572DD0 /* VideoPlayer.swift */; };
 		7FDDD72529DD570500572DD0 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72429DD570500572DD0 /* CircularProgressView.swift */; };
+		7FDDD72729DDAB0300572DD0 /* AssetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72629DDAB0300572DD0 /* AssetType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		7FDAA60C29D856190096D888 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7FDDD72229DCD99500572DD0 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		7FDDD72429DD570500572DD0 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		7FDDD72629DDAB0300572DD0 /* AssetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +141,6 @@
 				7FBE2AC429DA3CC30006C3B2 /* Database */,
 				7F2A67D829D8769A00238342 /* Extensions */,
 				7F2A67D929D876A400238342 /* Constants */,
-				7FBE2AB029D97F0C0006C3B2 /* DependencyContainer.swift */,
 				7F31762029DB42E60059BF29 /* LocalFileManager.swift */,
 			);
 			path = Core;
@@ -226,8 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				7FBE2AA829D967350006C3B2 /* LessonsRepository.swift */,
-				7FBE2AB429D987F70006C3B2 /* LessonsRemoteRepository.swift */,
 				7FBE2AB629D988160006C3B2 /* LessonsLocalRepository.swift */,
+				7FBE2AB429D987F70006C3B2 /* LessonsRemoteRepository.swift */,
 			);
 			path = Lessons;
 			sourceTree = "<group>";
@@ -296,6 +297,7 @@
 				7FBE2ABD29DA02280006C3B2 /* ClientError.swift */,
 				7FBE2ABB29DA02180006C3B2 /* LocalError.swift */,
 				7FBE2AA429D95B4F0006C3B2 /* ServerError.swift */,
+				7FDDD72629DDAB0300572DD0 /* AssetType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -315,7 +317,6 @@
 			children = (
 				7F31762229DB51BA0059BF29 /* Lessons */,
 				7F31762329DB51C70059BF29 /* Asset Repo */,
-				7FBE2AAA29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -323,7 +324,6 @@
 		7FBE2AAD29D97D420006C3B2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7FBE2AAE29D97D5A0006C3B2 /* ServicesDependencyContainer.swift */,
 				7FBE2AD529DAC9940006C3B2 /* LessonsService.swift */,
 				7F31762B29DB57690059BF29 /* AssetsService.swift */,
 			);
@@ -376,6 +376,7 @@
 				7FBE2AB829D9FA500006C3B2 /* Protocols */,
 				7FBE2A9E29D94B8E0006C3B2 /* Models */,
 				7FBE2AAC29D97CC80006C3B2 /* Repositories */,
+				7FDDD72829DDDC5E00572DD0 /* Factories */,
 				7FBE2AAD29D97D420006C3B2 /* Services */,
 				7FBE2A9D29D94B710006C3B2 /* Network */,
 				7FBE2A9629D945300006C3B2 /* Resources */,
@@ -390,6 +391,16 @@
 				7FDAA60C29D856190096D888 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7FDDD72829DDDC5E00572DD0 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE2AB029D97F0C0006C3B2 /* DependencyContainer.swift */,
+				7FBE2AAA29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift */,
+				7FBE2AAE29D97D5A0006C3B2 /* ServicesDependencyContainer.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -520,6 +531,7 @@
 				7FBE2A9529D8D8440006C3B2 /* LessonListTemplate.swift in Sources */,
 				7FBE2AA729D961F70006C3B2 /* NetworkRouter.swift in Sources */,
 				7F31762F29DB62A00059BF29 /* ClientImageViewModel.swift in Sources */,
+				7FDDD72729DDAB0300572DD0 /* AssetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

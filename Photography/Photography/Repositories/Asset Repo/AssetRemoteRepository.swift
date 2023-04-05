@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 protocol AssetRemoteRepository {
-    func getRemoteImage(urlString: String, completion: @escaping (Result<Data?, ClientError>) -> Void)
-    func getRemoteVideo(urlString: String, progress: PassthroughSubject<Double, Never>, completion: @escaping (Result<Data?, ClientError>) -> Void)
+    func getRemoteImage(urlString: String, completion: @escaping ImageResponse)
+    func getRemoteVideo(urlString: String, progress: PassthroughSubject<Double, Never>, completion: @escaping VideoRemoteResponse)
 }
 
 struct AssetRemoteRepositoryImp: AssetRemoteRepository {
@@ -20,7 +20,7 @@ struct AssetRemoteRepositoryImp: AssetRemoteRepository {
         self.client = client
     }
     
-    func getRemoteImage(urlString: String, completion: @escaping (Result<Data?, ClientError>) -> Void) {
+    func getRemoteImage(urlString: String, completion: @escaping ImageResponse) {
         client.downloadImage(urlString: urlString) { (response: Result<Data?, ServerError>) in
             switch response {
             case .success(let data):
@@ -31,7 +31,7 @@ struct AssetRemoteRepositoryImp: AssetRemoteRepository {
         }
     }
     
-    func getRemoteVideo(urlString: String, progress: PassthroughSubject<Double, Never>, completion: @escaping (Result<Data?, ClientError>) -> Void) {
+    func getRemoteVideo(urlString: String, progress: PassthroughSubject<Double, Never>, completion: @escaping VideoRemoteResponse) {
         client.downloadVideo(urlString: urlString, progress: progress) { (response: Result<Data?, ServerError>) in
             switch response {
             case .success(let data):

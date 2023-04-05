@@ -12,7 +12,7 @@ final class ServicesDependencyContainer {
     
     init(client: APIClient = NetworkManager(),
          database: DatabaseProvider = DatabaseManager.shared,
-         fileManager: FileManagerImageProvider = LocalFileManager.shared) {
+         fileManager: FileManagerAssetProvider = LocalFileManager.shared) {
         repositories = .init(client: client, database: database, fileManager: fileManager)
     }
     
@@ -20,7 +20,11 @@ final class ServicesDependencyContainer {
         LessonsServiceImp(network: repositories.lessonsRepository)
     }()
     
-    lazy var assets: AssetsService = {
-        AssetsServiceImp(network: repositories.assetRepository)
+    lazy var images: ImageService = {
+        ImageServiceImp(repository: repositories.imageRepository)
+    }()
+    
+    lazy var videos: VideoService = {
+        VideoServiceImp(repository: repositories.videoRepository)
     }()
 }

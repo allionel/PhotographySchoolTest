@@ -18,10 +18,10 @@ final class ClientImageViewModel: ObservableObject {
     @Published var errorMessage: String = ""
     @Binding private var imageName: String
     private let urlString: String
-    private let service: AssetsService
+    private let service: ImageService
 
     init(urlString: String,
-         service: AssetsService = DependencyContainer.shared.services.assets,
+         service: ImageService = DependencyContainer.shared.services.images,
          imageName: Binding<String>) {
         _imageName = imageName
         self.urlString = urlString

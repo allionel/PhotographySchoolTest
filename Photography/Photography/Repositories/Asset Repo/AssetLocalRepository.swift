@@ -7,31 +7,39 @@
 
 import Foundation
 
-protocol AssetLocalRepository {
+
+typealias AssetLocalRepository = ImageLocalRepository & VideoLocalRepository
+
+protocol ImageLocalRepository {
     func isImageAvailable(with name: String) -> Bool
-    func isVideoAvailable(with name: String) -> Bool
-    func saveImage(with imageName: String, data: Data, completion: @escaping (Result<Data?, ClientError>) -> Void)
-    func getLocalImage(imageName: String, completion: @escaping (Result<Data?, ClientError>) -> Void)
-    func saveVideo(with videoName: String, data: Data, completion: @escaping (Result<Data?, ClientError>) -> Void)
-    func getLocalVideo(videoName: String, completion: @escaping (Result<Data?, ClientError>) -> Void)
+    func saveImage(with imageName: String, data: Data, completion: @escaping ImageResponse)
+    func getLocalImage(imageName: String, completion: @escaping ImageResponse)
 }
 
-struct AssetLocalRepositoryImp: AssetLocalRepository {
-    private let fileManager: FileManagerImageProvider
+protocol VideoLocalRepository {
+    func isVideoAvailable(with name: String) -> Bool
+    func saveVideo(with videoName: String, data: Data, completion: @escaping VideoRemoteResponse)
+    func getLocalVideo(videoName: String, completion: @escaping VideoLocalResponse)
+}
+
+struct AssetLocalRepositoryImp {
+    private let fileManager: FileManagerAssetProvider
     
-    init(fileManager: FileManagerImageProvider) {
+    init(fileManager: FileManagerAssetProvider) {
         self.fileManager = fileManager
     }
-    
+}
+
+extension AssetLocalRepositoryImp: ImageLocalRepository {
     func isImageAvailable(with name: String) -> Bool {
         fileManager.isImageAvailable(with: name)
     }
     
-    func saveImage(with imageName: String, data: Data, completion: @escaping (Result<Data?, ClientError>) -> Void) {
+    func saveImage(with imageName: String, data: Data, completion: @escaping ImageResponse) {
         fileManager.saveImage(with: data, name: imageName)
     }
 
-    func getLocalImage(imageName: String, completion: @escaping (Result<Data?, ClientError>) -> Void) {
+    func getLocalImage(imageName: String, completion: @escaping ImageResponse) {
         do {
             let imageData = try fileManager.getImage(with: imageName)
             completion(.success(imageData))
@@ -39,16 +47,23 @@ struct AssetLocalRepositoryImp: AssetLocalRepository {
             completion(.failure(.localError(error as? LocalError ?? .unknown)))
         }
     }
-    
+}
+
+extension AssetLocalRepositoryImp: VideoLocalRepository {
     func isVideoAvailable(with name: String) -> Bool {
-        false
+        fileManager.isVideoAvailable(with: name)
     }
     
-    func saveVideo(with videoName: String, data: Data, completion: @escaping (Result<Data?, ClientError>) -> Void) {
-        
+    func saveVideo(with videoName: String, data: Data, completion: @escaping VideoRemoteResponse) {
+        fileManager.saveVideo(with: data, name: videoName)
     }
     
-    func getLocalVideo(videoName: String, completion: @escaping (Result<Data?, ClientError>) -> Void) {
-        
+    func getLocalVideo(videoName: String, completion: @escaping VideoLocalResponse) {
+        do {
+            let videoUrl = try fileManager.getVideo(with: videoName)
+            completion(.success(videoUrl))
+        } catch let error {
+            completion(.failure(.localError(error as? LocalError ?? .unknown)))
+        }
     }
 }

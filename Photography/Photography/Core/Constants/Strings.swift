@@ -8,7 +8,10 @@
 import Foundation
 
 public extension String {
+    // Constants
     static let space = " "
+    static let imageExtension = ".jpg"
+    static let videoExtension = ".mp4"
     
     // String literal to localize
     static let lessonsPageTitle = "lesson.list.page.title"

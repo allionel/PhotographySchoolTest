@@ -10,9 +10,9 @@ import Foundation
 final class RepositoriesDependencyContainer {
     private let client: APIClient
     private let database: DatabaseProvider
-    private let fileManager: FileManagerImageProvider
+    private let fileManager: FileManagerAssetProvider
     
-    init(client: APIClient, database: DatabaseProvider, fileManager: FileManagerImageProvider) {
+    init(client: APIClient, database: DatabaseProvider, fileManager: FileManagerAssetProvider) {
         self.client = client
         self.database = database
         self.fileManager = fileManager
@@ -25,10 +25,17 @@ final class RepositoriesDependencyContainer {
         return repository
     }()
     
-    lazy var assetRepository: AssetRepository = {
+    lazy var imageRepository: ImageRepository = {
         let remoteRepository: AssetRemoteRepository = AssetRemoteRepositoryImp(client: client)
         let localRepository: AssetLocalRepository = AssetLocalRepositoryImp(fileManager: fileManager)
-        let repository: AssetRepository = AssetRepositoryImp(localRepository: localRepository, remoteRepository: remoteRepository)
+        let repository: ImageRepository = AssetRepositoryImp(localRepository: localRepository, remoteRepository: remoteRepository)
+        return repository
+    }()
+    
+    lazy var videoRepository: VideoRepository = {
+        let remoteRepository: AssetRemoteRepository = AssetRemoteRepositoryImp(client: client)
+        let localRepository: AssetLocalRepository = AssetLocalRepositoryImp(fileManager: fileManager)
+        let repository: VideoRepository = AssetRepositoryImp(localRepository: localRepository, remoteRepository: remoteRepository)
         return repository
     }()
 }

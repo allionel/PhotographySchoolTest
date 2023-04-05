@@ -11,27 +11,41 @@ import Combine
 final class LessonDetailViewModel: ObservableObject {
     @Published var lesson: Lesson
     @Published var downloadProgress: Double = .zero
-    private let service: AssetsService
+    @Published var errorMessage: String = ""
+    @Published var localVideoUrl: URL? = nil
+    @Published var didFinishDownload: Bool = false
+    private let service: VideoService
     private let progressValue: PassthroughSubject<Double, Never> = .init()
     private var cancellable: [AnyCancellable] = []
     
-    init(lesson: Lesson, service: AssetsService = DependencyContainer.shared.services.assets) {
+    init(lesson: Lesson, service: VideoService = DependencyContainer.shared.services.videos) {
         self.lesson = lesson
         self.service = service
         progressValue.sink { [weak self] value in
             self?.downloadProgress = value
         }.store(in: &cancellable)
-        downloadVideo()
     }
     
     func downloadVideo() {
-        service.getVideo(videoName: lesson.id.toString, urlString: lesson.videoUrl, progress: progressValue) { [weak self] response in
+        service.downloadVideo(videoName: lesson.id.toString, urlString: lesson.videoUrl, progress: progressValue) { [weak self] response in
             guard let self else { return }
             switch response {
-            case .success(let data):
-                ()
+            case .success:
+                self.didFinishDownload = true
             case .failure(let error):
-                ()
+                self.errorMessage = error.errorDescription
+            }
+        }
+    }
+    
+    func getLocalVideo() {
+        service.getLocalVideo(videoName: lesson.id.toString, urlString: lesson.videoUrl) { [weak self] response in
+            guard let self else { return }
+            switch response {
+            case .success(let url):
+                self.localVideoUrl = url
+            case .failure(let error):
+                self.errorMessage = error.errorDescription
             }
         }
     }

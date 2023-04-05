@@ -19,16 +19,7 @@ final class DownloadBarButton: UIButton {
         setTitleColor(.systemBlue, for: .normal)
         addTarget(self, action: #selector(actionHandler), for: .touchUpInside)
     }
-    //    init(imageName: String = .downloadIcon) {
-//
-//        let image = UIImage(systemName: imageName)
-//        uiButton.setTitle(String.space + String.download.localized, for: .normal)
-//        uiButton.setImage(image, for: .normal)
-//        uiButton.setTitleColor(.systemBlue, for: .normal)
-//        super.init(customView: uiButton)
-//        uiButton.addAction(didPress)
-//    }
-//
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

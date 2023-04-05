@@ -15,7 +15,8 @@ public protocol RealmObjectAdapter {
 }
 
 public protocol RealmUniqueObject: Object {
-    var pk: String { get } // Returns primaryKey
+    // Returns primaryKey
+    var pk: String { get }
 }
 
 public extension RealmUniqueObject {
