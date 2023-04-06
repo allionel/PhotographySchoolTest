@@ -26,8 +26,8 @@ final class NetworkManager {
     
     required init() {
         let configuration = URLSessionConfiguration.af.default
-        configuration.timeoutIntervalForRequest = 30
-        configuration.timeoutIntervalForResource = 30
+        configuration.timeoutIntervalForRequest = 60
+        configuration.timeoutIntervalForResource = 60
         configuration.waitsForConnectivity = true
         
         sessionManager = .init(configuration: configuration, interceptor: interceptor)
@@ -106,6 +106,7 @@ extension NetworkManager: APIClient {
                 case let .success(data):
                     result(.success(data))
                 case let .failure(error):
+                    print("@@@", error)
                     result(.failure(ServerError(rawValue: error.responseCode ?? 1002) ?? ServerError.unknown))
                 }
             }

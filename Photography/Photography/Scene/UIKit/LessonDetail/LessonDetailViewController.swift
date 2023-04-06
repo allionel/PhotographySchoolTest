@@ -161,7 +161,7 @@ final class LessonDetailViewController: UIViewController {
     
     private func setupVideoPlayer() {
         contentView.addSubview(videoPlayer)
-        videoPlayer.videoPath = viewModel.lesson.videoUrl
+        videoPlayer.videoPath = viewModel.videoUrl
         let height = 2 * screenHeight / 7
         videoPlayer.heightAnchor.constraint(equalToConstant: height).isActive = true
         videoPlayer.addConstraint(to: contentView, on: .horizontal)

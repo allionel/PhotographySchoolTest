@@ -83,7 +83,7 @@ extension LocalFileManager: FileManagerVideoProvider {
     }
     
     func getVideo(with name: String) throws -> URL {
-        guard let fileURL = getUrlFor(asset: .image(name: name)) else { throw LocalError.unableToRead }
+        guard let fileURL = getUrlFor(asset: .video(name: name)) else { throw LocalError.unableToRead }
         return fileURL
     }
     

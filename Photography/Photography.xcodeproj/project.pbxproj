@@ -62,6 +62,7 @@
 		7FDDD72329DCD99500572DD0 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72229DCD99500572DD0 /* VideoPlayer.swift */; };
 		7FDDD72529DD570500572DD0 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72429DD570500572DD0 /* CircularProgressView.swift */; };
 		7FDDD72729DDAB0300572DD0 /* AssetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72629DDAB0300572DD0 /* AssetType.swift */; };
+		7FDDD72A29DEEE2100572DD0 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72929DEEE2100572DD0 /* LazyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		7FDDD72229DCD99500572DD0 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		7FDDD72429DD570500572DD0 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		7FDDD72629DDAB0300572DD0 /* AssetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetType.swift; sourceTree = "<group>"; };
+		7FDDD72929DEEE2100572DD0 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			children = (
 				7F8FA46229DC26AA00631E67 /* SwiftUI */,
 				7F8FA46329DC26B500631E67 /* UIKit */,
+				7FDDD72929DEEE2100572DD0 /* LazyView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				7FBE2A9529D8D8440006C3B2 /* LessonListTemplate.swift in Sources */,
 				7FBE2AA729D961F70006C3B2 /* NetworkRouter.swift in Sources */,
 				7F31762F29DB62A00059BF29 /* ClientImageViewModel.swift in Sources */,
+				7FDDD72A29DEEE2100572DD0 /* LazyView.swift in Sources */,
 				7FDDD72729DDAB0300572DD0 /* AssetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
