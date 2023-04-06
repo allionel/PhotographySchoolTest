@@ -11,16 +11,12 @@ public struct Lessons: Codable {
     public let lessons: [Lesson]
 }
 
-public struct Lesson: Codable, Identifiable, Hashable, ClientAssetProtocol {
+public struct Lesson: Codable, Identifiable, Equatable {
     public let id: Int
     public let name: String
     public let description: String
-
-    public var thumbnail: String
-    public var videoUrl: String
-
-    public var thumbnailLocalPath: String = ""
-    public var videoLocalPath: String = ""
+    public let thumbnail: String
+    public let videoUrl: String
     
     private enum CodingKeys: String, CodingKey {
         case id, name, description, thumbnail
@@ -35,8 +31,6 @@ extension Lesson: RealmObjectAdapter {
         self.description = managedObject.desc
         self.thumbnail = managedObject.thumbnail
         self.videoUrl = managedObject.videoUrl
-        self.thumbnailLocalPath = managedObject.thumbnailLocalPath
-        self.videoLocalPath = managedObject.videoLocalPath
     }
 
     public func managedObject() -> LessonRealmObject {
@@ -46,8 +40,6 @@ extension Lesson: RealmObjectAdapter {
         managedObject.desc = description
         managedObject.thumbnail = thumbnail
         managedObject.videoUrl = videoUrl
-        managedObject.thumbnailLocalPath = thumbnailLocalPath
-        managedObject.videoLocalPath = videoLocalPath
         return managedObject
     }
 }

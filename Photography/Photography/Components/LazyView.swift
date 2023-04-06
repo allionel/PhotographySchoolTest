@@ -5,7 +5,7 @@
 //  Created by Alireza Sotoudeh on 4/6/23.
 //
 
-import Foundation
+import SwiftUI
 
 /// Make delay loading of the resource until the view is on screen
 ///

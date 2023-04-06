@@ -51,7 +51,6 @@
 		7FBE2ACA29DA3D690006C3B2 /* RealmObjectAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AC929DA3D690006C3B2 /* RealmObjectAdapter.swift */; };
 		7FBE2ACC29DA3E370006C3B2 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ACB29DA3E370006C3B2 /* Singleton.swift */; };
 		7FBE2ACE29DA408E0006C3B2 /* LessonRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ACD29DA408E0006C3B2 /* LessonRealmObject.swift */; };
-		7FBE2AD029DAC1070006C3B2 /* ClientAssetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2ACF29DAC1070006C3B2 /* ClientAssetProtocol.swift */; };
 		7FBE2AD429DAC5FA0006C3B2 /* LessonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AD329DAC5FA0006C3B2 /* LessonsViewModel.swift */; };
 		7FBE2AD629DAC9940006C3B2 /* LessonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2AD529DAC9940006C3B2 /* LessonsService.swift */; };
 		7FC06E8C29D8CF0200CB7F1C /* ClientImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC06E8B29D8CF0200CB7F1C /* ClientImageView.swift */; };
@@ -107,7 +106,6 @@
 		7FBE2AC929DA3D690006C3B2 /* RealmObjectAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectAdapter.swift; sourceTree = "<group>"; };
 		7FBE2ACB29DA3E370006C3B2 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		7FBE2ACD29DA408E0006C3B2 /* LessonRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRealmObject.swift; sourceTree = "<group>"; };
-		7FBE2ACF29DAC1070006C3B2 /* ClientAssetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAssetProtocol.swift; sourceTree = "<group>"; };
 		7FBE2AD329DAC5FA0006C3B2 /* LessonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsViewModel.swift; sourceTree = "<group>"; };
 		7FBE2AD529DAC9940006C3B2 /* LessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsService.swift; sourceTree = "<group>"; };
 		7FBE2AD729DAD3400006C3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -333,13 +331,12 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		7FBE2AB829D9FA500006C3B2 /* Protocols */ = {
+		7FBE2AB829D9FA500006C3B2 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				7FBE2ACB29DA3E370006C3B2 /* Singleton.swift */,
-				7FBE2ACF29DAC1070006C3B2 /* ClientAssetProtocol.swift */,
 			);
-			path = Protocols;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		7FBE2AC429DA3CC30006C3B2 /* Database */ = {
@@ -376,7 +373,7 @@
 				7F2A67DE29D8815F00238342 /* Scene */,
 				7F2A67E129D881DC00238342 /* Components */,
 				7F2A67D329D8720E00238342 /* Core */,
-				7FBE2AB829D9FA500006C3B2 /* Protocols */,
+				7FBE2AB829D9FA500006C3B2 /* Helper */,
 				7FBE2A9E29D94B8E0006C3B2 /* Models */,
 				7FBE2AAC29D97CC80006C3B2 /* Repositories */,
 				7FDDD72829DDDC5E00572DD0 /* Factories */,
@@ -492,7 +489,6 @@
 				7F31763129DB691F0059BF29 /* Int+Extension.swift in Sources */,
 				7F2A67DD29D8782500238342 /* Fonts.swift in Sources */,
 				7FDAA60829D856180096D888 /* ContentView.swift in Sources */,
-				7FBE2AD029DAC1070006C3B2 /* ClientAssetProtocol.swift in Sources */,
 				7FBE2ACE29DA408E0006C3B2 /* LessonRealmObject.swift in Sources */,
 				7FBE2AA929D967350006C3B2 /* LessonsRepository.swift in Sources */,
 				7F2A67E729D8981100238342 /* Image+Extension.swift in Sources */,
