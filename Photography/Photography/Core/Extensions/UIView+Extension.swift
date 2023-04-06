@@ -44,6 +44,16 @@ extension UIView {
 }
 
 extension UIView {
+    var visible: Bool {
+        get { !isHidden }
+        set {
+            isHidden = !newValue
+            alpha = newValue ? 1 : 0
+        }
+    }
+}
+
+extension UIView {
     func addConstraint(to superView: UIView, on edge: Edge.Set, with constant: CGFloat = .zero) {
         switch edge {
         case .top:

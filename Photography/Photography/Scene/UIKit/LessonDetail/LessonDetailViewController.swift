@@ -16,31 +16,14 @@ final class LessonDetailViewController: UIViewController {
     private var cancellable: [AnyCancellable] = []
     
     private let appearingDelay: TimeInterval = 0.5
-    private let animationDuration: TimeInterval = 0.3
     
     // MARK: - UI Properties -
     
-    private var itemBarStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        return stackView
+    private var downloadBarItem: DownloadBarItem = {
+        let item: DownloadBarItem = .init(progressSize: 20)
+        return item
     }()
-    
-    private lazy var progressView: CircularProgressView = {
-        let view: CircularProgressView = .init(size: 20)
-        view.progressColor = .systemBlue
-        view.trackColor = .darkGray
-        view.alpha = .zero
-        return view
-    }()
-    
-    private lazy var downloadBarButton: DownloadBarButton = {
-        let button = DownloadBarButton()
-        return button
-    }()
-    
+
     // We use scrollView because of covering long text appearance if it comes from server
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -184,11 +167,12 @@ final class LessonDetailViewController: UIViewController {
     }
     
     private func setupBarButtonItems() {
-        itemBarStackView.addArrangedSubview(progressView)
-        itemBarStackView.addArrangedSubview(downloadBarButton)
-        let items: UIBarButtonItem = .init(customView: itemBarStackView)
-        downloadBarButton.didTap { [weak self] in
-            self?.handleDownloadButtonTap()
+        let items: UIBarButtonItem = .init(customView: downloadBarItem)
+        viewModel.$downloadState.sink { [weak self] value in
+            self?.downloadBarItem.viewState = value
+        }.store(in: &cancellable)
+        downloadBarItem.didTapDownload { [weak self] in
+            self?.viewModel.startDownloadingVideo()
         }
         navigationController?.navigationItem.rightBarButtonItem = items
     }
@@ -197,15 +181,7 @@ final class LessonDetailViewController: UIViewController {
     
     private func setupDownloadProgress() {
         viewModel.$downloadProgress.sink { [weak self] progress in
-            self?.progressView.progress = Float(progress)
+            self?.downloadBarItem.downloadProgress = progress
         }.store(in: &cancellable)
-    }
-    
-    private func handleDownloadButtonTap() {
-        UIView.animate(withDuration: self.animationDuration, delay: .zero) {
-            self.progressView.alpha = 1
-            self.downloadBarButton.isHidden = true
-        }
-        viewModel.startDownloadingVideo()
     }
 }

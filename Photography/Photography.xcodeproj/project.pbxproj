@@ -62,6 +62,8 @@
 		7FDDD72529DD570500572DD0 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72429DD570500572DD0 /* CircularProgressView.swift */; };
 		7FDDD72729DDAB0300572DD0 /* AssetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72629DDAB0300572DD0 /* AssetType.swift */; };
 		7FDDD72A29DEEE2100572DD0 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72929DEEE2100572DD0 /* LazyView.swift */; };
+		7FDDD72C29DEF31B00572DD0 /* DownloadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72B29DEF31B00572DD0 /* DownloadState.swift */; };
+		7FDDD72E29DEFC6A00572DD0 /* DownloadBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72D29DEFC6A00572DD0 /* DownloadBarItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +121,8 @@
 		7FDDD72429DD570500572DD0 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		7FDDD72629DDAB0300572DD0 /* AssetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetType.swift; sourceTree = "<group>"; };
 		7FDDD72929DEEE2100572DD0 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		7FDDD72B29DEF31B00572DD0 /* DownloadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadState.swift; sourceTree = "<group>"; };
+		7FDDD72D29DEFC6A00572DD0 /* DownloadBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBarItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +188,6 @@
 			children = (
 				7F8FA46229DC26AA00631E67 /* SwiftUI */,
 				7F8FA46329DC26B500631E67 /* UIKit */,
-				7FDDD72929DEEE2100572DD0 /* LazyView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				7F31762D29DB62840059BF29 /* Client Image */,
+				7FDDD72929DEEE2100572DD0 /* LazyView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -267,6 +271,7 @@
 				7FDDD72429DD570500572DD0 /* CircularProgressView.swift */,
 				7F8FA46429DC26C800631E67 /* DownloadBarButton.swift */,
 				7FDDD72229DCD99500572DD0 /* VideoPlayer.swift */,
+				7FDDD72D29DEFC6A00572DD0 /* DownloadBarItem.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				7FBE2ABB29DA02180006C3B2 /* LocalError.swift */,
 				7FBE2AA429D95B4F0006C3B2 /* ServerError.swift */,
 				7FDDD72629DDAB0300572DD0 /* AssetType.swift */,
+				7FDDD72B29DEF31B00572DD0 /* DownloadState.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -489,6 +495,7 @@
 				7F31763129DB691F0059BF29 /* Int+Extension.swift in Sources */,
 				7F2A67DD29D8782500238342 /* Fonts.swift in Sources */,
 				7FDAA60829D856180096D888 /* ContentView.swift in Sources */,
+				7FDDD72E29DEFC6A00572DD0 /* DownloadBarItem.swift in Sources */,
 				7FBE2ACE29DA408E0006C3B2 /* LessonRealmObject.swift in Sources */,
 				7FBE2AA929D967350006C3B2 /* LessonsRepository.swift in Sources */,
 				7F2A67E729D8981100238342 /* Image+Extension.swift in Sources */,
@@ -512,6 +519,7 @@
 				7F2A67D229D8650A00238342 /* LessonListView.swift in Sources */,
 				7FBE2A9A29D945EB0006C3B2 /* Strings.swift in Sources */,
 				7F2A67E329D8820400238342 /* LessonListRow.swift in Sources */,
+				7FDDD72C29DEF31B00572DD0 /* DownloadState.swift in Sources */,
 				7FBE2AD629DAC9940006C3B2 /* LessonsService.swift in Sources */,
 				7FBE2AC629DA3CF00006C3B2 /* DatabaseProvider.swift in Sources */,
 				7F2A67E929D89D2800238342 /* Images.swift in Sources */,
