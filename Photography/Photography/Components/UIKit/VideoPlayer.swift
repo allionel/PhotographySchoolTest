@@ -19,21 +19,7 @@ final class VideoPlayerViewController: AVPlayerViewController {
             player = avPlayer
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
 
-        if self.isMovingFromParent {
-          UIDevice.current.setValue(Int(UIInterfaceOrientation.portrait.rawValue), forKey: "orientation")
-        }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        pause()
-        terminate()
-    }
-    
     func play() {
         avPlayer?.play()
     }
@@ -125,5 +111,10 @@ final class VideoPlayer: UIView {
             self?.playerControler.play()
             self?.playButton.isHidden = true
         }
+    }
+    
+    func terminateProcess() {
+        playerControler.pause()
+        playerControler.terminate()
     }
 }

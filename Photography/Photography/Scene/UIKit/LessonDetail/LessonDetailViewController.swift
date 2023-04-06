@@ -177,6 +177,9 @@ final class LessonDetailViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         // To make self deinited
-        navigationController?.viewControllers = []
+        if navigationController?.presentedViewController == nil {
+            videoPlayer.terminateProcess()
+            navigationController?.viewControllers = []
+        }
     }
 }
