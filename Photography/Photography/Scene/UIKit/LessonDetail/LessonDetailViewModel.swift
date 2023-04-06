@@ -26,7 +26,7 @@ final class LessonDetailViewModel: ObservableObject {
         }.store(in: &cancellable)
     }
     
-    func downloadVideo() {
+    func startDownloadingVideo() {
         service.downloadVideo(videoName: lesson.id.toString, urlString: lesson.videoUrl, progress: progressValue) { [weak self] response in
             guard let self else { return }
             switch response {

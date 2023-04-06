@@ -15,9 +15,21 @@ final class LessonDetailViewController: UIViewController {
     private let screenHeight: CGFloat = UIScreen.main.bounds.height
     private var cancellable: [AnyCancellable] = []
     
+    private let appearingDelay: TimeInterval = 0.5
+    private let animationDuration: TimeInterval = 0.3
+    
+    // MARK: - UI Properties -
+    
+    private var itemBarStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
+    }()
+    
     private lazy var progressView: CircularProgressView = {
-        let frame: CGRect = .init(origin: .zero, size: .init(width: 20, height: 20))
-        let view: CircularProgressView = .init(frame: frame)
+        let view: CircularProgressView = .init(size: 20)
         view.progressColor = .systemBlue
         view.trackColor = .darkGray
         view.alpha = .zero
@@ -29,6 +41,7 @@ final class LessonDetailViewController: UIViewController {
         return button
     }()
     
+    // We use scrollView because of covering long text appearance if it comes from server
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,6 +96,8 @@ final class LessonDetailViewController: UIViewController {
         return label
     }()
     
+    // MARK: - Initialize
+    
     init(viewModel: LessonDetailViewModel) {
         self._viewModel = .init(wrappedValue: viewModel)
         super.init(nibName: nil, bundle: nil)
@@ -92,11 +107,13 @@ final class LessonDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
         // Navigation needs to be ready because of transition from swiftui view
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + appearingDelay) { [self] in
             setupUIElement()
             setupBarButtonItems()
             setupDownloadProgress()
@@ -108,6 +125,17 @@ final class LessonDetailViewController: UIViewController {
         navigationController?.navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.prefersLargeTitles = false
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // To make self deinited
+        if navigationController?.presentedViewController == nil {
+            videoPlayer.terminateProcess()
+            navigationController?.viewControllers = []
+        }
+    }
+    
+    // MARK: - Setup UI Elements -
     
     private func setupUIElement() {
         setupScrollView()
@@ -156,30 +184,28 @@ final class LessonDetailViewController: UIViewController {
     }
     
     private func setupBarButtonItems() {
-        let progreesItem: UIBarButtonItem = .init(customView: progressView)
-        let downloadItem: UIBarButtonItem = .init(customView: downloadBarButton)
+        itemBarStackView.addArrangedSubview(progressView)
+        itemBarStackView.addArrangedSubview(downloadBarButton)
+        let items: UIBarButtonItem = .init(customView: itemBarStackView)
         downloadBarButton.didTap { [weak self] in
-            UIView.animate(withDuration: 0.3, delay: .zero) {
-                self?.progressView.alpha = 1
-                self?.navigationController?.navigationBar.layoutIfNeeded()
-                downloadItem.isHidden = true
-            }
+            self?.handleDownloadButtonTap()
         }
-        navigationController?.navigationItem.rightBarButtonItems = [downloadItem, progreesItem]
+        navigationController?.navigationItem.rightBarButtonItem = items
     }
 
+    // MARK: - Operations -
+    
     private func setupDownloadProgress() {
         viewModel.$downloadProgress.sink { [weak self] progress in
             self?.progressView.progress = Float(progress)
         }.store(in: &cancellable)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        // To make self deinited
-        if navigationController?.presentedViewController == nil {
-            videoPlayer.terminateProcess()
-            navigationController?.viewControllers = []
+    private func handleDownloadButtonTap() {
+        UIView.animate(withDuration: self.animationDuration, delay: .zero) {
+            self.progressView.alpha = 1
+            self.downloadBarButton.isHidden = true
         }
+        viewModel.startDownloadingVideo()
     }
 }

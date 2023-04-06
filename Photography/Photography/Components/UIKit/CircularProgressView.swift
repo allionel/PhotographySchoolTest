@@ -14,6 +14,12 @@ final class CircularProgressView: UIView {
     fileprivate var lineWidth: CGFloat = 2
     var timeToFill = 0.3
     
+    private var size: CGFloat = .zero
+    private var halfSize: CGFloat { size/2 }
+    private var centePoint: CGPoint {
+        .init(x: halfSize, y: halfSize)
+    }
+    
     var progressColor = UIColor.white {
         didSet {
             progressLayer.strokeColor = progressColor.cgColor
@@ -26,7 +32,7 @@ final class CircularProgressView: UIView {
         }
     }
     
-    var progress: Float {
+    var progress: Float = .zero {
         didSet{
             var pathMoved = progress - oldValue
             if pathMoved < .zero {
@@ -35,11 +41,14 @@ final class CircularProgressView: UIView {
             setProgress(duration: timeToFill * Double(pathMoved), to: progress)
         }
     }
- 
+    
     fileprivate func createProgressView() {
-        self.backgroundColor = .clear
-        self.layer.cornerRadius = frame.size.width / 2
-        let circularPath = UIBezierPath(arcCenter: center, radius: frame.width / 2, startAngle: CGFloat(-0.5 * .pi), endAngle: CGFloat(1.5 * .pi), clockwise: true)
+        backgroundColor = .clear
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: size).isActive = true
+        heightAnchor.constraint(equalToConstant: size).isActive = true
+        layer.cornerRadius = halfSize
+        let circularPath = UIBezierPath(arcCenter: centePoint, radius: halfSize, startAngle: CGFloat(-0.5 * .pi), endAngle: CGFloat(1.5 * .pi), clockwise: true)
         trackLayer.fillColor = UIColor.blue.cgColor
         
         trackLayer.path = circularPath.cgPath
@@ -53,15 +62,18 @@ final class CircularProgressView: UIView {
         progressLayer.fillColor = .none
         progressLayer.strokeColor = progressColor.cgColor
         progressLayer.lineWidth = lineWidth
-        progressLayer.strokeEnd = 0
-        progressLayer.lineCap = .square //cc
+        progressLayer.strokeEnd = .zero
+        progressLayer.lineCap = .square
         layer.addSublayer(progressLayer)
     }
     
     func trackColorToProgressColor() -> Void{
         trackColor = progressColor
         guard let colorComponents = progressColor.cgColor.components else { return }
-        trackColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: colorComponents[2], alpha: 0.2)
+        trackColor = UIColor(red: colorComponents[0],
+                             green: colorComponents[1],
+                             blue: colorComponents[2],
+                             alpha: 0.2)
     }
     
     func setProgress(duration: TimeInterval = 0.3, to newProgress: Float) -> Void{
@@ -73,21 +85,20 @@ final class CircularProgressView: UIView {
         progressLayer.add(animation, forKey: "animationProgress")
     }
     
-    override init(frame: CGRect){
-        progress = .zero
-        lineWidth = 2
+    private override init(frame: CGRect) {
         super.init(frame: frame)
-        createProgressView()
     }
     
+    // Must be implemented only programatically via the custom init
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    init(frame: CGRect, lineWidth: CGFloat) {
-        progress = .zero
+    
+    init(progress: Float = .zero, size: CGFloat, lineWidth: CGFloat = 2.2) {
+        super.init(frame: .zero)
+        self.progress = progress
+        self.size = size
         self.lineWidth = lineWidth
-        super.init(frame: frame)
         createProgressView()
     }
 }
