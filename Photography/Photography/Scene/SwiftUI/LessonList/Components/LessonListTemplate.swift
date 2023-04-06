@@ -18,7 +18,7 @@ struct LessonListTemplate: View {
                     LazyView(LessonDetailView(viewModel: .init(lesson: data)))
                         .edgesIgnoringSafeArea(.all)
                 } label: {
-                    LessonListRow(imageViewModel: .init(urlString: data.thumbnail, imageName: .constant(data.id.toString)), title: data.name)
+                    LessonListRow(imageViewModel: .init(urlString: data.thumbnail, imageName: .constant(data.assetName)), title: data.name)
                         .padding(.trailing, -19)
                 }
                 .listRowBackground(Color.clear)

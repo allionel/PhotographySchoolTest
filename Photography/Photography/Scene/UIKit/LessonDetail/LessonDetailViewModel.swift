@@ -19,7 +19,7 @@ final class LessonDetailViewModel: ObservableObject {
     private var cancellable: [AnyCancellable] = []
     
     private var isVideoAvailable: Bool {
-        service.isVideoAvailable(with: lesson.id.toString)
+        service.isVideoAvailable(with: lesson.assetName)
     }
     
     init(lesson: Lesson, service: VideoService = DependencyContainer.shared.services.videos) {
@@ -33,7 +33,7 @@ final class LessonDetailViewModel: ObservableObject {
     }
     
     func startDownloadingVideo() {
-        service.downloadVideo(videoName: lesson.id.toString, urlString: lesson.videoUrl, progress: progressValue) { [weak self] response in
+        service.downloadVideo(videoName: lesson.assetName, urlString: lesson.videoUrl, progress: progressValue) { [weak self] response in
             guard let self else { return }
             switch response {
             case .success:
@@ -45,7 +45,7 @@ final class LessonDetailViewModel: ObservableObject {
     }
     
     func getLocalVideo() {
-        service.getLocalVideo(videoName: lesson.id.toString, urlString: lesson.videoUrl) { [weak self] response in
+        service.getLocalVideo(videoName: lesson.assetName, urlString: lesson.videoUrl) { [weak self] response in
             guard let self else { return }
             switch response {
             case .success(let url):

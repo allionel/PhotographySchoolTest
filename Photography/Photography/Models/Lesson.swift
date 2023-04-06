@@ -24,6 +24,10 @@ public struct Lesson: Codable, Identifiable, Equatable {
     }
 }
 
+public extension Lesson {
+    var assetName: String { id.toString }
+}
+
 extension Lesson: RealmObjectAdapter {
     public init(managedObject: LessonRealmObject) {
         self.id = managedObject.id

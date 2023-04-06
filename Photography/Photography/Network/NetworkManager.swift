@@ -55,7 +55,7 @@ extension NetworkManager: APIClient {
             .validate()
             .responseDecodable(of: T.self) { response in
                 #if DEBUG
-                    print("Response: \(debugPrint(response))")
+                    print("RESPONSE: \(debugPrint(response))")
                 #endif
                 switch response.result {
                 case let .success(model):
@@ -106,7 +106,9 @@ extension NetworkManager: APIClient {
                 case let .success(data):
                     result(.success(data))
                 case let .failure(error):
-                    print("@@@", error)
+                    #if DEBUG
+                        debugPrint("@@@ Download Video Error: ", error.localizedDescription)
+                    #endif
                     result(.failure(ServerError(rawValue: error.responseCode ?? 1002) ?? ServerError.unknown))
                 }
             }
