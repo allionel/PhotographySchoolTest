@@ -21,7 +21,6 @@ protocol VideoRepository {
     func cancelDownloading()
 }
 
-
 struct AssetRepositoryImp {
     private let localRepository: AssetLocalRepository
     private let remoteRepository: AssetRemoteRepository
