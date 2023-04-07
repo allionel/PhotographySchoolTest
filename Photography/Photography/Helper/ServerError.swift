@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum ServerError: Int, Error {
-    typealias RawValue = Int
+public enum ServerError: Int, Error {
+    public typealias RawValue = Int
     case badRequest = 400
     case unauthorized = 401
     case forbidden = 403
@@ -23,7 +23,7 @@ enum ServerError: Int, Error {
 }
 
 extension ServerError: LocalizedError {
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .badRequest:
             return "Invalid Request Parameters"

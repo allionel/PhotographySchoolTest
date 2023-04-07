@@ -21,7 +21,7 @@ final class LessonDetailViewModel: ObservableObject {
     private var isVideoAvailable: Bool {
         service.isVideoAvailable(with: lesson.assetName)
     }
-//    "http://techslides.com/demos/sample-videos/small.mp4"
+    
     init(lesson: Lesson, service: VideoService = DependencyContainer.shared.services.videos) {
         self.lesson = lesson
         self.service = service

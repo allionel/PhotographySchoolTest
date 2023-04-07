@@ -69,7 +69,22 @@
 		7FDDD73429DFDCC500572DD0 /* PageDirectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73329DFDCC500572DD0 /* PageDirectionViewState.swift */; };
 		7FDDD73629E002A600572DD0 /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73529E002A600572DD0 /* HighlightButton.swift */; };
 		7FDDD73829E002DE00572DD0 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73729E002DE00572DD0 /* LabelButton.swift */; };
+		7FDDD74029E022E100572DD0 /* PhotographyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73F29E022E100572DD0 /* PhotographyTests.swift */; };
+		7FDDD74A29E026FE00572DD0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7FDDD74929E026FE00572DD0 /* Alamofire */; };
+		7FDDD74C29E0270100572DD0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7FDDD74B29E0270100572DD0 /* Realm */; };
+		7FDDD74E29E0270300572DD0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7FDDD74D29E0270300572DD0 /* RealmSwift */; };
+		7FDDD75029E0274600572DD0 /* NetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD74F29E0274600572DD0 /* NetworkTest.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7FDDD74129E022E100572DD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FDAA5FA29D856180096D888 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FDAA60129D856180096D888;
+			remoteInfo = Photography;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7F2A67D129D8650A00238342 /* LessonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListView.swift; sourceTree = "<group>"; };
@@ -133,6 +148,9 @@
 		7FDDD73329DFDCC500572DD0 /* PageDirectionViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDirectionViewState.swift; sourceTree = "<group>"; };
 		7FDDD73529E002A600572DD0 /* HighlightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightButton.swift; sourceTree = "<group>"; };
 		7FDDD73729E002DE00572DD0 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
+		7FDDD73D29E022E100572DD0 /* PhotographyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotographyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FDDD73F29E022E100572DD0 /* PhotographyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyTests.swift; sourceTree = "<group>"; };
+		7FDDD74F29E0274600572DD0 /* NetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +161,16 @@
 				7FBE2AC329DA37AC0006C3B2 /* RealmSwift in Frameworks */,
 				7FBE2AC129DA37AC0006C3B2 /* Realm in Frameworks */,
 				7F2A67D029D8649300238342 /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FDDD73A29E022E100572DD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FDDD74E29E0270300572DD0 /* RealmSwift in Frameworks */,
+				7FDDD74C29E0270100572DD0 /* Realm in Frameworks */,
+				7FDDD74A29E026FE00572DD0 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +402,9 @@
 			isa = PBXGroup;
 			children = (
 				7FDAA60429D856180096D888 /* Photography */,
+				7FDDD73E29E022E100572DD0 /* PhotographyTests */,
 				7FDAA60329D856180096D888 /* Products */,
+				7FDDD74829E026FE00572DD0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -382,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				7FDAA60229D856180096D888 /* Photography.app */,
+				7FDDD73D29E022E100572DD0 /* PhotographyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -424,6 +455,22 @@
 			path = Factories;
 			sourceTree = "<group>";
 		};
+		7FDDD73E29E022E100572DD0 /* PhotographyTests */ = {
+			isa = PBXGroup;
+			children = (
+				7FDDD73F29E022E100572DD0 /* PhotographyTests.swift */,
+				7FDDD74F29E0274600572DD0 /* NetworkTest.swift */,
+			);
+			path = PhotographyTests;
+			sourceTree = "<group>";
+		};
+		7FDDD74829E026FE00572DD0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -449,6 +496,29 @@
 			productReference = 7FDAA60229D856180096D888 /* Photography.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7FDDD73C29E022E100572DD0 /* PhotographyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FDDD74329E022E100572DD0 /* Build configuration list for PBXNativeTarget "PhotographyTests" */;
+			buildPhases = (
+				7FDDD73929E022E100572DD0 /* Sources */,
+				7FDDD73A29E022E100572DD0 /* Frameworks */,
+				7FDDD73B29E022E100572DD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7FDDD74229E022E100572DD0 /* PBXTargetDependency */,
+			);
+			name = PhotographyTests;
+			packageProductDependencies = (
+				7FDDD74929E026FE00572DD0 /* Alamofire */,
+				7FDDD74B29E0270100572DD0 /* Realm */,
+				7FDDD74D29E0270300572DD0 /* RealmSwift */,
+			);
+			productName = PhotographyTests;
+			productReference = 7FDDD73D29E022E100572DD0 /* PhotographyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -461,6 +531,10 @@
 				TargetAttributes = {
 					7FDAA60129D856180096D888 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					7FDDD73C29E022E100572DD0 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 7FDAA60129D856180096D888;
 					};
 				};
 			};
@@ -482,6 +556,7 @@
 			projectRoot = "";
 			targets = (
 				7FDAA60129D856180096D888 /* Photography */,
+				7FDDD73C29E022E100572DD0 /* PhotographyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -494,6 +569,13 @@
 				7FDAA60D29D856190096D888 /* Preview Assets.xcassets in Resources */,
 				7FBE2A9829D9457D0006C3B2 /* Localizable.strings in Resources */,
 				7FDAA60A29D856190096D888 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FDDD73B29E022E100572DD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,7 +645,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FDDD73929E022E100572DD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FDDD75029E0274600572DD0 /* NetworkTest.swift in Sources */,
+				7FDDD74029E022E100572DD0 /* PhotographyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7FDDD74229E022E100572DD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FDAA60129D856180096D888 /* Photography */;
+			targetProxy = 7FDDD74129E022E100572DD0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7FDAA60E29D856190096D888 /* Debug */ = {
@@ -746,6 +845,40 @@
 			};
 			name = Release;
 		};
+		7FDDD74429E022E100572DD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = assignment.school.PhotographyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photography.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Photography";
+			};
+			name = Debug;
+		};
+		7FDDD74529E022E100572DD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = assignment.school.PhotographyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photography.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Photography";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -763,6 +896,15 @@
 			buildConfigurations = (
 				7FDAA61129D856190096D888 /* Debug */,
 				7FDAA61229D856190096D888 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FDDD74329E022E100572DD0 /* Build configuration list for PBXNativeTarget "PhotographyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FDDD74429E022E100572DD0 /* Debug */,
+				7FDDD74529E022E100572DD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -800,6 +942,21 @@
 			productName = Realm;
 		};
 		7FBE2AC229DA37AC0006C3B2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FBE2ABF29DA37AC0006C3B2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		7FDDD74929E026FE00572DD0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F2A67CE29D8649300238342 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		7FDDD74B29E0270100572DD0 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FBE2ABF29DA37AC0006C3B2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		7FDDD74D29E0270300572DD0 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7FBE2ABF29DA37AC0006C3B2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;

@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import Combine
 
-protocol APIClient {
+public protocol APIClient {
     var isNetworkReachable: Bool { get }
     func request<T>(_: URLRequestConvertible, result: @escaping (Result<T, ServerError>) -> Void) where T: Decodable, T: Encodable
     func downloadImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void)
@@ -17,7 +17,7 @@ protocol APIClient {
     func cancelDownloading()
 }
 
-final class NetworkManager {
+final public class NetworkManager {
     private let sessionManager: Session
     private let decoder: JSONDecoder
     private let interceptor = Interceptor()
@@ -26,7 +26,7 @@ final class NetworkManager {
     private let progressValue: PassthroughSubject<Double, Never> = .init()
     private var cancellable: [AnyCancellable] = []
     
-    required init() {
+    public required init() {
         let configuration = URLSessionConfiguration.af.default
         configuration.timeoutIntervalForRequest = 60
         configuration.timeoutIntervalForResource = 60
@@ -38,11 +38,11 @@ final class NetworkManager {
 }
 
 extension NetworkManager: APIClient {
-    var isNetworkReachable: Bool {
+    public var isNetworkReachable: Bool {
         NetworkReachabilityManager()?.isReachable ?? false
     }
     
-    func request<T>(_ endpoint: Alamofire.URLRequestConvertible, result: @escaping (Result<T, ServerError>) -> Void) where T : Decodable, T : Encodable {
+    public func request<T>(_ endpoint: Alamofire.URLRequestConvertible, result: @escaping (Result<T, ServerError>) -> Void) where T : Decodable, T : Encodable {
         guard let urlRequest = try? endpoint.asURLRequest() else {
             result(.failure(ServerError.invalidRequest))
             return
@@ -68,7 +68,7 @@ extension NetworkManager: APIClient {
             }
     }
     
-    func downloadImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void) {
+    public func downloadImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void) {
         guard let url = URL(string: urlString) else {
             result(.failure(ServerError.invalidRequest))
             return
@@ -87,7 +87,7 @@ extension NetworkManager: APIClient {
             }
     }
     
-    func downloadVideo(urlString: String, progress: PassthroughSubject<Double, Never>, result: @escaping (Result<Data?, ServerError>) -> Void)  {
+    public func downloadVideo(urlString: String, progress: PassthroughSubject<Double, Never>, result: @escaping (Result<Data?, ServerError>) -> Void)  {
         guard let url = URL(string: urlString) else {
             result(.failure(ServerError.invalidRequest))
             return
@@ -116,7 +116,7 @@ extension NetworkManager: APIClient {
             }
     }
     
-    func cancelDownloading() {
+    public func cancelDownloading() {
         downloadRecquest?.cancel()
     }
 }
