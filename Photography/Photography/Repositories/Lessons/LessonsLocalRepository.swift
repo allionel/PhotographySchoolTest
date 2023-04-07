@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LessonsLocalRepository {
+ protocol LessonsLocalRepository {
     func save(data: Lesson, completion: @escaping (Result<Lesson, LocalError>) -> Void) throws
     func save(data: Lessons, completion: @escaping (Result<Lessons, LocalError>) -> Void) throws
     func load(data completion: @escaping (Result<Lessons, LocalError>) -> Void)

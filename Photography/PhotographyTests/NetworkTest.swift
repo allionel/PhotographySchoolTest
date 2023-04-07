@@ -77,22 +77,21 @@ final class NetworkTest: XCTestCase {
         }
     }
 
-    
     enum Router: NetworkRouter {
         case getLessons
         var method: RequestMethod? { return .get }
         var path: String { return "lessons" }
     }
-    
-    struct LessonsModel: Codable {
-        let lessons: [LessonModel]
-    }
-    
-    struct LessonModel: Codable {
-        public let id: Int
-        public let name: String
-        public let description: String
-    }
+}
+
+struct LessonsModel: Codable {
+    let lessons: [LessonModel]
+}
+
+struct LessonModel: Codable {
+    public let id: Int
+    public let name: String
+    public let description: String
 }
 
 let LessonMockData = """
