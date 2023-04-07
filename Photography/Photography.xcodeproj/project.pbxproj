@@ -64,6 +64,9 @@
 		7FDDD72A29DEEE2100572DD0 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72929DEEE2100572DD0 /* LazyView.swift */; };
 		7FDDD72C29DEF31B00572DD0 /* DownloadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72B29DEF31B00572DD0 /* DownloadState.swift */; };
 		7FDDD72E29DEFC6A00572DD0 /* DownloadBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72D29DEFC6A00572DD0 /* DownloadBarItem.swift */; };
+		7FDDD73029DF8A1B00572DD0 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72F29DF8A1B00572DD0 /* PageViewController.swift */; };
+		7FDDD73229DF8A4B00572DD0 /* LessonDetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73129DF8A4B00572DD0 /* LessonDetailPageViewController.swift */; };
+		7FDDD73429DFDCC500572DD0 /* PageViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73329DFDCC500572DD0 /* PageViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +126,9 @@
 		7FDDD72929DEEE2100572DD0 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		7FDDD72B29DEF31B00572DD0 /* DownloadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadState.swift; sourceTree = "<group>"; };
 		7FDDD72D29DEFC6A00572DD0 /* DownloadBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBarItem.swift; sourceTree = "<group>"; };
+		7FDDD72F29DF8A1B00572DD0 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		7FDDD73129DF8A4B00572DD0 /* LessonDetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailPageViewController.swift; sourceTree = "<group>"; };
+		7FDDD73329DFDCC500572DD0 /* PageViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +278,7 @@
 				7F8FA46429DC26C800631E67 /* DownloadBarButton.swift */,
 				7FDDD72229DCD99500572DD0 /* VideoPlayer.swift */,
 				7FDDD72D29DEFC6A00572DD0 /* DownloadBarItem.swift */,
+				7FDDD72F29DF8A1B00572DD0 /* PageViewController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -308,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				7F2B248829DBD8FD00D77589 /* LessonDetailView.swift */,
+				7FDDD73129DF8A4B00572DD0 /* LessonDetailPageViewController.swift */,
 				7F2B248629DBCC6B00D77589 /* LessonDetailViewController.swift */,
 				7F8FA46629DC3CE900631E67 /* LessonDetailViewModel.swift */,
 			);
@@ -341,6 +349,7 @@
 				7FBE2AA429D95B4F0006C3B2 /* ServerError.swift */,
 				7FDDD72629DDAB0300572DD0 /* AssetType.swift */,
 				7FDDD72B29DEF31B00572DD0 /* DownloadState.swift */,
+				7FDDD73329DFDCC500572DD0 /* PageViewState.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -512,7 +521,9 @@
 				7FC06E8C29D8CF0200CB7F1C /* ClientImageView.swift in Sources */,
 				7FDAA60629D856180096D888 /* PhotographyApp.swift in Sources */,
 				7FBE2ACC29DA3E370006C3B2 /* Singleton.swift in Sources */,
+				7FDDD73029DF8A1B00572DD0 /* PageViewController.swift in Sources */,
 				7F8FA46129DC261C00631E67 /* UIView+Extension.swift in Sources */,
+				7FDDD73429DFDCC500572DD0 /* PageViewState.swift in Sources */,
 				7FBE2AAB29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift in Sources */,
 				7FBE2ABE29DA02280006C3B2 /* ClientError.swift in Sources */,
 				7F2B248729DBCC6B00D77589 /* LessonDetailViewController.swift in Sources */,
@@ -538,6 +549,7 @@
 				7FBE2A9529D8D8440006C3B2 /* LessonListTemplate.swift in Sources */,
 				7FBE2AA729D961F70006C3B2 /* NetworkRouter.swift in Sources */,
 				7F31762F29DB62A00059BF29 /* ClientImageViewModel.swift in Sources */,
+				7FDDD73229DF8A4B00572DD0 /* LessonDetailPageViewController.swift in Sources */,
 				7FDDD72A29DEEE2100572DD0 /* LazyView.swift in Sources */,
 				7FDDD72729DDAB0300572DD0 /* AssetType.swift in Sources */,
 			);

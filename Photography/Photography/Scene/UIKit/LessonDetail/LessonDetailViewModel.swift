@@ -39,6 +39,7 @@ final class LessonDetailViewModel: ObservableObject {
             case .success:
                 self.downloadState = .done
             case .failure(let error):
+                self.downloadState = .ready
                 self.errorMessage = error.errorDescription
             }
         }

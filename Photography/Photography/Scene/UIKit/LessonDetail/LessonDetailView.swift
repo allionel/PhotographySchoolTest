@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct LessonDetailView: UIViewControllerRepresentable {
-    let viewModel: LessonDetailViewModel
-    init(viewModel: LessonDetailViewModel) {
-        self.viewModel = viewModel
+    let currentLesson: Lesson
+    let lessons: [Lesson]
+    
+    init(currentLesson: Lesson, lessons: [Lesson]) {
+        self.currentLesson = currentLesson
+        self.lessons = lessons
     }
     
-    func makeUIViewController(context: Context) -> LessonDetailViewController {
-        return LessonDetailViewController(viewModel: viewModel)
+    func makeUIViewController(context: Context) -> LessonDetailPageViewController {
+        return LessonDetailPageViewController(currentLesson: currentLesson, lessons: lessons)
     }
 
-    func updateUIViewController(_ uiViewController: LessonDetailViewController, context: Context) { }
+    func updateUIViewController(_ uiViewController: LessonDetailPageViewController, context: Context) { }
 }

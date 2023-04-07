@@ -45,7 +45,7 @@ final class DownloadBarItem: UIView {
     
     private lazy var doneImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = .init(systemName: "arrow.down.to.line.alt")
+        imageView.image = .init(systemName: .finishDownload)
         imageView.tintColor = .systemBlue
         return imageView
     }()

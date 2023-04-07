@@ -8,3 +8,5 @@
 
 "lesson.list.page.title" = "Lessons";
 "download.title" = "Download";
+"next.lesson.title" = "Next lesson";
+"previous.lesson.title" = "Previous lesson";

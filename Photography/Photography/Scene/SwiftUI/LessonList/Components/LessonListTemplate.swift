@@ -13,12 +13,12 @@ struct LessonListTemplate: View {
     
     var body: some View {
         List {
-            ForEach(data) { data in
+            ForEach(data) { lesson in
                 NavigationLink {
-                    LazyView(LessonDetailView(viewModel: .init(lesson: data)))
+                    LazyView(LessonDetailView(currentLesson: lesson, lessons: data))
                         .edgesIgnoringSafeArea(.all)
                 } label: {
-                    LessonListRow(imageViewModel: .init(urlString: data.thumbnail, imageName: .constant(data.assetName)), title: data.name)
+                    LessonListRow(imageViewModel: .init(urlString: lesson.thumbnail, imageName: .constant(lesson.assetName)), title: lesson.name)
                         .padding(.trailing, -19)
                 }
                 .listRowBackground(Color.clear)

@@ -51,7 +51,7 @@ final class LessonDetailViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = .verticalPadding
-        stackView.alignment = .leading
+        stackView.alignment = .center
         stackView.distribution = .fill
         return stackView
     }()
@@ -79,9 +79,38 @@ final class LessonDetailViewController: UIViewController {
         return label
     }()
     
-    // MARK: - Initialize
+    private lazy var nextButtonsStack: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
+    }()
     
-    init(viewModel: LessonDetailViewModel) {
+    private lazy var nextLessonButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(.nextLesson.localized, for: .normal)
+        button.setImage(.init(systemName: .chevronRight), for: .normal)
+        button.titleLabel?.font = .subtitle
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.tintColor = .systemBlue
+        return button
+    }()
+    
+    private lazy var previousLessonButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(.previousLesson.localized, for: .normal)
+        button.setImage(.init(systemName: .chevronLeft), for: .normal)
+        button.titleLabel?.font = .subtitle
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.tintColor = .systemBlue
+        return button
+    }()
+    
+    // MARK: - Initialize
+    weak var parentControllerDelegate: PageViewControllerProvider?
+    init(parentControllerDelegate: PageViewControllerProvider, viewModel: LessonDetailViewModel) {
+        self.parentControllerDelegate = parentControllerDelegate
         self._viewModel = .init(wrappedValue: viewModel)
         super.init(nibName: nil, bundle: nil)
     }
@@ -95,6 +124,7 @@ final class LessonDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
+        
         // Navigation needs to be ready because of transition from swiftui view
         DispatchQueue.main.asyncAfter(deadline: .now() + appearingDelay) { [self] in
             setupUIElement()
@@ -103,19 +133,18 @@ final class LessonDetailViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.navigationBar.prefersLargeTitles = false
-    }
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         // To make self deinited
         if navigationController?.presentedViewController == nil {
             videoPlayer.terminateProcess()
-            navigationController?.viewControllers = []
         }
+    }
+    
+    deinit {
+        #if DEBUG
+            debugPrint(String.deinitMessage)
+        #endif
     }
     
     // MARK: - Setup UI Elements -
@@ -125,8 +154,9 @@ final class LessonDetailViewController: UIViewController {
         setupVideoPlayer()
         setupStackView()
         setupTextViews()
+        setupNextAndPreviousButton()
     }
-    
+
     private func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.addConstraint(to: view, on: .horizontal)
@@ -168,20 +198,44 @@ final class LessonDetailViewController: UIViewController {
     
     private func setupBarButtonItems() {
         let items: UIBarButtonItem = .init(customView: downloadBarItem)
-        viewModel.$downloadState.sink { [weak self] value in
-            self?.downloadBarItem.viewState = value
-        }.store(in: &cancellable)
-        downloadBarItem.didTapDownload { [weak self] in
-            self?.viewModel.startDownloadingVideo()
-        }
+        setupDownloadActions()
         navigationController?.navigationItem.rightBarButtonItem = items
+    }
+
+    private func setupNextAndPreviousButton() {
+        verticalStackView.addArrangedSubview(nextButtonsStack)
+        nextButtonsStack.addArrangedSubview(previousLessonButton)
+        nextButtonsStack.addArrangedSubview(nextLessonButton)
+        setupNextAndPreviousActions()
     }
 
     // MARK: - Operations -
     
     private func setupDownloadProgress() {
         viewModel.$downloadProgress.sink { [weak self] progress in
-            self?.downloadBarItem.downloadProgress = progress
+            DispatchQueue.main.async {
+                self?.downloadBarItem.downloadProgress = progress
+            }
         }.store(in: &cancellable)
+    }
+    
+    private func setupDownloadActions() {
+        downloadBarItem.didTapDownload { [weak self] in
+            self?.viewModel.startDownloadingVideo()
+        }
+        viewModel.$downloadState.sink { [weak self] value in
+            DispatchQueue.main.async {
+                self?.downloadBarItem.viewState = value
+            }
+        }.store(in: &cancellable)
+    }
+    
+    private func setupNextAndPreviousActions() {
+        nextLessonButton.addAction { [weak self] in
+            self?.parentControllerDelegate?.gotoNextPage()
+        }
+        previousLessonButton.addAction { [weak self] in
+            self?.parentControllerDelegate?.gotoPreviousPage()
+        }
     }
 }
