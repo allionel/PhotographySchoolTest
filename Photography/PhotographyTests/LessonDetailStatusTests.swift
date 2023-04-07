@@ -1,6 +1,6 @@
 //
-//  PhotographyTests.swift
-//  PhotographyTests
+//  LessonDetailStatusTests.swift
+//  LessonDetailStatusTests
 //
 //  Created by Alireza Sotoudeh on 4/7/23.
 //
@@ -10,23 +10,35 @@ import XCTest
 
 final class PhotographyTests: XCTestCase {
 
-    let viewModel: LessonDetailViewModel = .init(lesson: <#T##Lesson#>)
+    private var viewModel: LessonDetailViewModel? = nil
+    private var lessons: [Lesson] = []
     
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        decodeModel()
+        viewModel = .init(lesson: lessons[0])
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testStateChangeToDownloading() {
+        let expectation = expectation(description: "State has changed to downloading successfuy")
+        viewModel?.startDownloadingVideo()
+        viewModel?.downloadState == .downloading ? expectation.fulfill() : ()
+        wait(for: [expectation], timeout: 1)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testVideoGetUrl() {
+        let expectation = expectation(description: "Get url successfuy")
+        guard let viewModel else { return }
+        !viewModel.videoUrl.isEmpty ? expectation.fulfill() : ()
+        wait(for: [expectation], timeout: 1)
     }
+    
+    func testDownloadStatusWhenIsDone() {
+        let expectation = expectation(description: "View State is Change to Done successfuly")
+        viewModel?.getLocalVideo()
+        viewModel?.downloadState == .done ? expectation.fulfill() : ()
+        wait(for: [expectation], timeout: 1)
+    }
+    override func tearDownWithError() throws { }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
@@ -35,33 +47,16 @@ final class PhotographyTests: XCTestCase {
         }
     }
 
-    func f() {
-        let string = "[{\"form_id\":3465,\"canonical_name\":\"df_SAWERQ\",\"form_name\":\"Activity 4 with Images\",\"form_desc\":null}]"
-        let data = string.data(using: .utf8)!
+    private func decodeModel() {
+        let data = lessonMockJsonString.data(using: .utf8)!
         do {
-            if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]
-            {
-               print(jsonArray) // use the json here
-            } else {
-                print("bad json")
-            }
-        } catch let error as NSError {
-            print(error)
-        }
+            let res = try JSONDecoder().decode(Lessons.self, from: data)
+            lessons = res.lessons
+        } catch { }
     }
 }
 
-struct LessonsModel: Codable {
-    let lessons: [LessonModel]
-}
-
-struct LessonModel: Codable {
-    public let id: Int
-    public let name: String
-    public let description: String
-}
-
-let LessonMockJsonString = """
+let lessonMockJsonString = """
 {
     "lessons": [
         {
@@ -69,7 +64,7 @@ let LessonMockJsonString = """
             "name": "The Key To Success In iPhone Photography",
             "description": "What's the secret to taking truly incredible iPhone photos? Learning how to use your iPhone camera is very important, but there's something even more fundamental to iPhone photography that will help you take the photos of your dreams! Watch this video to learn some unique photography techniques and to discover your own key to success in iPhone photography!",
             "thumbnail": "https://embed-ssl.wistia.com/deliveries/b57817b5b05c3e3129b7071eee83ecb7.jpg?image_crop_resized=1000x560",
-            "video_url": "https://embed-ssl.wistia.com/deliveries/cc8402e8c16cc8f36d3f63bd29eb82f99f4b5f88/accudvh5jy.mp4"
+            "video_url": "http://techslides.com/demos/sample-videos/small.mp4"
         },
         {
             "id": 7991,

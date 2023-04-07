@@ -69,7 +69,7 @@
 		7FDDD73429DFDCC500572DD0 /* PageDirectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73329DFDCC500572DD0 /* PageDirectionViewState.swift */; };
 		7FDDD73629E002A600572DD0 /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73529E002A600572DD0 /* HighlightButton.swift */; };
 		7FDDD73829E002DE00572DD0 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73729E002DE00572DD0 /* LabelButton.swift */; };
-		7FDDD74029E022E100572DD0 /* PhotographyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73F29E022E100572DD0 /* PhotographyTests.swift */; };
+		7FDDD74029E022E100572DD0 /* LessonDetailStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73F29E022E100572DD0 /* LessonDetailStatusTests.swift */; };
 		7FDDD74A29E026FE00572DD0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7FDDD74929E026FE00572DD0 /* Alamofire */; };
 		7FDDD74C29E0270100572DD0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7FDDD74B29E0270100572DD0 /* Realm */; };
 		7FDDD74E29E0270300572DD0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7FDDD74D29E0270300572DD0 /* RealmSwift */; };
@@ -151,7 +151,7 @@
 		7FDDD73529E002A600572DD0 /* HighlightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightButton.swift; sourceTree = "<group>"; };
 		7FDDD73729E002DE00572DD0 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
 		7FDDD73D29E022E100572DD0 /* PhotographyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotographyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7FDDD73F29E022E100572DD0 /* PhotographyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyTests.swift; sourceTree = "<group>"; };
+		7FDDD73F29E022E100572DD0 /* LessonDetailStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailStatusTests.swift; sourceTree = "<group>"; };
 		7FDDD74F29E0274600572DD0 /* NetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTest.swift; sourceTree = "<group>"; };
 		7FDDD75129E0468900572DD0 /* LessonsRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsRepositoryTest.swift; sourceTree = "<group>"; };
 		7FDDD75329E052BD00572DD0 /* AssetRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetRepositoryTest.swift; sourceTree = "<group>"; };
@@ -462,10 +462,10 @@
 		7FDDD73E29E022E100572DD0 /* PhotographyTests */ = {
 			isa = PBXGroup;
 			children = (
-				7FDDD73F29E022E100572DD0 /* PhotographyTests.swift */,
 				7FDDD74F29E0274600572DD0 /* NetworkTest.swift */,
 				7FDDD75129E0468900572DD0 /* LessonsRepositoryTest.swift */,
 				7FDDD75329E052BD00572DD0 /* AssetRepositoryTest.swift */,
+				7FDDD73F29E022E100572DD0 /* LessonDetailStatusTests.swift */,
 			);
 			path = PhotographyTests;
 			sourceTree = "<group>";
@@ -657,7 +657,7 @@
 			files = (
 				7FDDD75429E052BD00572DD0 /* AssetRepositoryTest.swift in Sources */,
 				7FDDD75029E0274600572DD0 /* NetworkTest.swift in Sources */,
-				7FDDD74029E022E100572DD0 /* PhotographyTests.swift in Sources */,
+				7FDDD74029E022E100572DD0 /* LessonDetailStatusTests.swift in Sources */,
 				7FDDD75229E0468900572DD0 /* LessonsRepositoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

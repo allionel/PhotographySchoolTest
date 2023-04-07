@@ -84,3 +84,12 @@ final class NetworkTest: XCTestCase {
     }
 }
 
+struct LessonsModel: Codable {
+    let lessons: [LessonModel]
+}
+
+struct LessonModel: Codable {
+    public let id: Int
+    public let name: String
+    public let description: String
+}
