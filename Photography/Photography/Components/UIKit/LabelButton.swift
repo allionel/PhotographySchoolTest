@@ -27,7 +27,7 @@ final class LabelButton: HighlightButton {
     private lazy var label: UILabel = {
         let label = UILabel()
         label.isUserInteractionEnabled = false
-        label.font = .subtitle
+        label.font = .regularBody
         label.textColor = .systemBlue
         return label
     }()

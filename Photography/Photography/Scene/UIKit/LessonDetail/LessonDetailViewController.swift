@@ -16,7 +16,7 @@ final class LessonDetailViewController: UIViewController {
     private var cancellable: [AnyCancellable] = []
     
     private let appearingDelay: TimeInterval = 0.5
-    private let arrowSpacerSize: CGFloat = 48
+    private let arrowSpacerSize: CGFloat = 88
     
     // MARK: - UI Properties -
     
