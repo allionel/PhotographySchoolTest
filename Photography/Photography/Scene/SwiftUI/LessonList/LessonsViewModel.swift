@@ -23,11 +23,11 @@ final class LessonsViewModel: ObservableObject {
     private func fetchData() {
         service.getLessons { [weak self] response in
             guard let self else { return }
+            self.isLoading = false
             switch response {
             case let .success(data):
                 DispatchQueue.main.async {
                     self.lessons = data.lessons
-                    self.isLoading = false
                 }
             case let .failure(error):
                 self.errorText = error.errorDescription
