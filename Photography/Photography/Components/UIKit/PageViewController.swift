@@ -9,6 +9,7 @@ import UIKit
 
 final class PageViewController: UIPageViewController {
     var pages: [UIViewController] = []
+    
     var page: PageDirectionViewState = .next(index: .zero) {
         didSet {
             setViewControllers([pages[.zero]], direction: page.direction, animated: true, completion: nil)

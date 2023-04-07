@@ -52,8 +52,8 @@ final class LessonDetailViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = .verticalPadding
-        stackView.alignment = .center
-        stackView.distribution = .equalSpacing
+        stackView.alignment = .leading
+        stackView.distribution = .fill
         return stackView
     }()
     

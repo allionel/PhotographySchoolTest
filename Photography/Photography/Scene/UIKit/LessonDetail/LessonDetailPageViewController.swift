@@ -59,7 +59,7 @@ final class LessonDetailPageViewController: UIViewController {
         view.addSubview(pageViewController.view)
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
         pageViewController.view.fill(to: view)
-        didMove(toParent: self)
+        pageViewController.didMove(toParent: self)
     }
     
     private func setupViewControllers() {

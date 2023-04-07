@@ -58,8 +58,9 @@ final class VideoPlayer: UIView {
     // Must be set to move to parent controller
     weak var parent: UIViewController? {
         didSet {
-            parent?.addChild(playerControler)
-            playerControler.didMove(toParent: parent)
+            DispatchQueue.main.async { [self] in
+                parent?.addChild(playerControler)
+                playerControler.didMove(toParent: parent)}
         }
     }
     
@@ -87,7 +88,8 @@ final class VideoPlayer: UIView {
     
     private func setupPlayerController() {
         addSubview(playerControler.view)
-        playerControler.view.frame = bounds
+        playerControler.view.translatesAutoresizingMaskIntoConstraints = false
+        playerControler.view.fill(to: self)
         playerControler.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
