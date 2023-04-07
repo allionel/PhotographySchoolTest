@@ -14,12 +14,14 @@ protocol APIClient {
     func request<T>(_: URLRequestConvertible, result: @escaping (Result<T, ServerError>) -> Void) where T: Decodable, T: Encodable
     func downloadImage(urlString: String, result: @escaping (Result<Data?, ServerError>) -> Void)
     func downloadVideo(urlString: String, progress: PassthroughSubject<Double, Never>, result: @escaping (Result<Data?, ServerError>) -> Void)
+    func cancelDownloading()
 }
 
 final class NetworkManager {
     private let sessionManager: Session
     private let decoder: JSONDecoder
     private let interceptor = Interceptor()
+    private var downloadRecquest: DataRequest?
     
     private let progressValue: PassthroughSubject<Double, Never> = .init()
     private var cancellable: [AnyCancellable] = []
@@ -96,7 +98,7 @@ extension NetworkManager: APIClient {
             progress.send(value)
         }.store(in: &cancellable)
         
-        sessionManager
+        downloadRecquest = sessionManager
             .request(urlRequest)
             .downloadProgress { [weak self] progress in
                 guard let self else { return }
@@ -114,4 +116,7 @@ extension NetworkManager: APIClient {
             }
     }
     
+    func cancelDownloading() {
+        downloadRecquest?.cancel()
+    }
 }

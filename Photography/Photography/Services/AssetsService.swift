@@ -21,6 +21,7 @@ protocol VideoService {
     func isVideoAvailable(with name: String) -> Bool
     func downloadVideo(videoName: String, urlString: String, progress: PassthroughSubject<Double, Never>, completion: @escaping VideoRemoteResponse)
     func getLocalVideo(videoName: String, urlString: String, completion: @escaping VideoLocalResponse)
+    func cancelDownloading()
 }
 
 struct ImageServiceImp: ImageService {
@@ -52,5 +53,9 @@ struct VideoServiceImp: VideoService {
     
     func getLocalVideo(videoName: String, urlString: String, completion: @escaping VideoLocalResponse) {
         repository.getLocalVideo(videoName: videoName, urlString: urlString, completion: completion)
+    }
+    
+    func cancelDownloading() {
+        repository.cancelDownloading()
     }
 }

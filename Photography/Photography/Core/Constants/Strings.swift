@@ -28,5 +28,6 @@ public extension String {
     
     // Messages
     static let deinitMessage = "@@@ ViewController has been deinited ..."
+    static let initCoderFatalError = "init(coder:) has not been implemented"
 }
 

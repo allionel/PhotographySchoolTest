@@ -67,6 +67,8 @@
 		7FDDD73029DF8A1B00572DD0 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72F29DF8A1B00572DD0 /* PageViewController.swift */; };
 		7FDDD73229DF8A4B00572DD0 /* LessonDetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73129DF8A4B00572DD0 /* LessonDetailPageViewController.swift */; };
 		7FDDD73429DFDCC500572DD0 /* PageViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73329DFDCC500572DD0 /* PageViewState.swift */; };
+		7FDDD73629E002A600572DD0 /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73529E002A600572DD0 /* HighlightButton.swift */; };
+		7FDDD73829E002DE00572DD0 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73729E002DE00572DD0 /* LabelButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +131,8 @@
 		7FDDD72F29DF8A1B00572DD0 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		7FDDD73129DF8A4B00572DD0 /* LessonDetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailPageViewController.swift; sourceTree = "<group>"; };
 		7FDDD73329DFDCC500572DD0 /* PageViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewState.swift; sourceTree = "<group>"; };
+		7FDDD73529E002A600572DD0 /* HighlightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightButton.swift; sourceTree = "<group>"; };
+		7FDDD73729E002DE00572DD0 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +283,8 @@
 				7FDDD72229DCD99500572DD0 /* VideoPlayer.swift */,
 				7FDDD72D29DEFC6A00572DD0 /* DownloadBarItem.swift */,
 				7FDDD72F29DF8A1B00572DD0 /* PageViewController.swift */,
+				7FDDD73729E002DE00572DD0 /* LabelButton.swift */,
+				7FDDD73529E002A600572DD0 /* HighlightButton.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -518,6 +524,7 @@
 				7FBE2AB729D988160006C3B2 /* LessonsLocalRepository.swift in Sources */,
 				7F31762529DB51ED0059BF29 /* AssetRepository.swift in Sources */,
 				7F31762829DB51FF0059BF29 /* AssetLocalRepository.swift in Sources */,
+				7FDDD73629E002A600572DD0 /* HighlightButton.swift in Sources */,
 				7FC06E8C29D8CF0200CB7F1C /* ClientImageView.swift in Sources */,
 				7FDAA60629D856180096D888 /* PhotographyApp.swift in Sources */,
 				7FBE2ACC29DA3E370006C3B2 /* Singleton.swift in Sources */,
@@ -529,6 +536,7 @@
 				7F2B248729DBCC6B00D77589 /* LessonDetailViewController.swift in Sources */,
 				7F2A67D229D8650A00238342 /* LessonListView.swift in Sources */,
 				7FBE2A9A29D945EB0006C3B2 /* Strings.swift in Sources */,
+				7FDDD73829E002DE00572DD0 /* LabelButton.swift in Sources */,
 				7F2A67E329D8820400238342 /* LessonListRow.swift in Sources */,
 				7FDDD72C29DEF31B00572DD0 /* DownloadState.swift in Sources */,
 				7FBE2AD629DAC9940006C3B2 /* LessonsService.swift in Sources */,

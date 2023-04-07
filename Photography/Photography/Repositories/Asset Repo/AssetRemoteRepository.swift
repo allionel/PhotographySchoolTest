@@ -11,6 +11,7 @@ import Combine
 protocol AssetRemoteRepository {
     func getRemoteImage(urlString: String, completion: @escaping ImageResponse)
     func getRemoteVideo(urlString: String, progress: PassthroughSubject<Double, Never>, completion: @escaping VideoRemoteResponse)
+    func cancelDownloading()
 }
 
 struct AssetRemoteRepositoryImp: AssetRemoteRepository {
@@ -40,5 +41,9 @@ struct AssetRemoteRepositoryImp: AssetRemoteRepository {
                 completion(.failure(.serverError(error)))
             }
         }
+    }
+    
+    func cancelDownloading() {
+        client.cancelDownloading()
     }
 }

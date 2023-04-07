@@ -58,6 +58,10 @@ final class LessonDetailViewModel: ObservableObject {
         }
     }
     
+    func cancelDownloading() {
+        service.cancelDownloading()
+    }
+    
     private func checkVideoAvailablitiy() {
         if isVideoAvailable {
             getLocalVideo()

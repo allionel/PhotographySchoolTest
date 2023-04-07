@@ -25,7 +25,7 @@ final class DownloadBarButton: UIButton {
     }
 
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(String.initCoderFatalError)
     }
     
     @objc private func actionHandler() { didPress?() }

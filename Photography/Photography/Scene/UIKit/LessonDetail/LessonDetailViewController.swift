@@ -16,6 +16,7 @@ final class LessonDetailViewController: UIViewController {
     private var cancellable: [AnyCancellable] = []
     
     private let appearingDelay: TimeInterval = 0.5
+    private let arrowSpacerSize: CGFloat = 48
     
     // MARK: - UI Properties -
     
@@ -52,7 +53,7 @@ final class LessonDetailViewController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = .verticalPadding
         stackView.alignment = .center
-        stackView.distribution = .fill
+        stackView.distribution = .equalSpacing
         return stackView
     }()
     
@@ -83,27 +84,21 @@ final class LessonDetailViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
-        stackView.distribution = .fill
+        stackView.distribution = .equalCentering
         return stackView
     }()
     
-    private lazy var nextLessonButton: UIButton = {
-        let button = UIButton()
-        button.setTitle(.nextLesson.localized, for: .normal)
-        button.setImage(.init(systemName: .chevronRight), for: .normal)
-        button.titleLabel?.font = .subtitle
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.tintColor = .systemBlue
+    private lazy var nextLessonButton: LabelButton = {
+        let button = LabelButton(direction: .right)
+        button.title = .nextLesson.localized
+        button.image = .chevronRight
         return button
     }()
     
-    private lazy var previousLessonButton: UIButton = {
-        let button = UIButton()
-        button.setTitle(.previousLesson.localized, for: .normal)
-        button.setImage(.init(systemName: .chevronLeft), for: .normal)
-        button.titleLabel?.font = .subtitle
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.tintColor = .systemBlue
+    private lazy var previousLessonButton: LabelButton = {
+        let button = LabelButton(direction: .left)
+        button.title = .previousLesson.localized
+        button.image = .chevronLeft
         return button
     }()
     
@@ -116,7 +111,7 @@ final class LessonDetailViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(String.initCoderFatalError)
     }
     
     // MARK: - View Lifecycle
@@ -145,6 +140,7 @@ final class LessonDetailViewController: UIViewController {
         #if DEBUG
             debugPrint(String.deinitMessage)
         #endif
+        viewModel.cancelDownloading()
     }
     
     // MARK: - Setup UI Elements -
@@ -205,6 +201,7 @@ final class LessonDetailViewController: UIViewController {
     private func setupNextAndPreviousButton() {
         verticalStackView.addArrangedSubview(nextButtonsStack)
         nextButtonsStack.addArrangedSubview(previousLessonButton)
+        nextButtonsStack.addArrangedSubview(UIView.spacer(size: arrowSpacerSize))
         nextButtonsStack.addArrangedSubview(nextLessonButton)
         setupNextAndPreviousActions()
     }

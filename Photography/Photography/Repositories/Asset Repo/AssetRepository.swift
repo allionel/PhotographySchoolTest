@@ -18,6 +18,7 @@ protocol VideoRepository {
     func isVideoAvailable(with name: String) -> Bool 
     func downloadVideo(videoName: String, urlString: String, progress: PassthroughSubject<Double, Never>, completion: @escaping VideoRemoteResponse)
     func getLocalVideo(videoName: String, urlString: String, completion: @escaping VideoLocalResponse)
+    func cancelDownloading()
 }
 
 
@@ -83,5 +84,9 @@ extension AssetRepositoryImp: VideoRepository {
     
     func getLocalVideo(videoName: String, urlString: String, completion: @escaping VideoLocalResponse) {
         localRepository.getLocalVideo(videoName: videoName, completion: completion)
+    }
+    
+    func cancelDownloading() {
+        remoteRepository.cancelDownloading()
     }
 }

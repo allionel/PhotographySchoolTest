@@ -56,7 +56,7 @@ final class DownloadBarItem: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(String.initCoderFatalError)
     }
     
     init(progressSize: CGFloat) {
