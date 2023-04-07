@@ -8,6 +8,7 @@
 import UIKit
 
 protocol PageViewControllerProvider: AnyObject {
+    var pageStatus: PageViewState { get }
     func gotoNextPage()
     func gotoPreviousPage()
 }
@@ -70,15 +71,25 @@ final class LessonDetailPageViewController: UIViewController {
 }
 
 extension LessonDetailPageViewController: PageViewControllerProvider {
+    var pageStatus: PageViewState {
+        let isLastPage = pageViewController.page.pageIndex == lessons.count - 1
+        let isFirstPage = pageViewController.page.pageIndex == .zero
+        return isFirstPage ? .first : (isLastPage ? .last : .middle)
+    }
+    
     func gotoNextPage() {
-        let nextIndex = pageViewController.page.pageIndex + 1
+        let currentIndex = pageViewController.page.pageIndex
+        guard currentIndex < lessons.count - 1 else { return }
+        let nextIndex = currentIndex + 1
         let viewController = LessonDetailViewController(parentControllerDelegate: self, viewModel: .init(lesson: lessons[nextIndex]))
         pageViewController.pages = [viewController]
         pageViewController.page = .next(index: nextIndex)
     }
     
     func gotoPreviousPage() {
-        let previousIndex = pageViewController.page.pageIndex - 1
+        let currentIndex = pageViewController.page.pageIndex
+        guard currentIndex > .zero else { return }
+        let previousIndex = currentIndex - 1
         let viewController = LessonDetailViewController(parentControllerDelegate: self, viewModel: .init(lesson: lessons[previousIndex]))
         pageViewController.pages = [viewController]
         pageViewController.page = .previous(index: previousIndex)

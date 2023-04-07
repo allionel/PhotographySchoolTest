@@ -125,6 +125,8 @@ final class LessonDetailViewController: UIViewController {
             setupUIElement()
             setupBarButtonItems()
             setupDownloadProgress()
+            checkIfIsFirstPage()
+            checkIfIsLastPage()
         }
     }
     
@@ -229,10 +231,28 @@ final class LessonDetailViewController: UIViewController {
     
     private func setupNextAndPreviousActions() {
         nextLessonButton.addAction { [weak self] in
-            self?.parentControllerDelegate?.gotoNextPage()
+            guard let self, let delegate = self.parentControllerDelegate else { return }
+            self.checkIfIsLastPage()
+            delegate.gotoNextPage()
         }
         previousLessonButton.addAction { [weak self] in
-            self?.parentControllerDelegate?.gotoPreviousPage()
+            guard let self, let delegate = self.parentControllerDelegate else { return }
+            self.checkIfIsFirstPage()
+            delegate.gotoPreviousPage()
+        }
+    }
+    
+    private func checkIfIsFirstPage() {
+        if parentControllerDelegate?.pageStatus.isFirstPage == true {
+            self.previousLessonButton.alpha = 0
+            self.nextLessonButton.alpha = 1
+        }
+    }
+    
+    private func checkIfIsLastPage() {
+        if parentControllerDelegate?.pageStatus.isLastPage == true {
+            self.previousLessonButton.alpha = 1
+            self.nextLessonButton.alpha = 0
         }
     }
 }

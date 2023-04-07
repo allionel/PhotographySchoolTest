@@ -66,7 +66,7 @@
 		7FDDD72E29DEFC6A00572DD0 /* DownloadBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72D29DEFC6A00572DD0 /* DownloadBarItem.swift */; };
 		7FDDD73029DF8A1B00572DD0 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD72F29DF8A1B00572DD0 /* PageViewController.swift */; };
 		7FDDD73229DF8A4B00572DD0 /* LessonDetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73129DF8A4B00572DD0 /* LessonDetailPageViewController.swift */; };
-		7FDDD73429DFDCC500572DD0 /* PageViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73329DFDCC500572DD0 /* PageViewState.swift */; };
+		7FDDD73429DFDCC500572DD0 /* PageDirectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73329DFDCC500572DD0 /* PageDirectionViewState.swift */; };
 		7FDDD73629E002A600572DD0 /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73529E002A600572DD0 /* HighlightButton.swift */; };
 		7FDDD73829E002DE00572DD0 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDD73729E002DE00572DD0 /* LabelButton.swift */; };
 /* End PBXBuildFile section */
@@ -130,7 +130,7 @@
 		7FDDD72D29DEFC6A00572DD0 /* DownloadBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBarItem.swift; sourceTree = "<group>"; };
 		7FDDD72F29DF8A1B00572DD0 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		7FDDD73129DF8A4B00572DD0 /* LessonDetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailPageViewController.swift; sourceTree = "<group>"; };
-		7FDDD73329DFDCC500572DD0 /* PageViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewState.swift; sourceTree = "<group>"; };
+		7FDDD73329DFDCC500572DD0 /* PageDirectionViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDirectionViewState.swift; sourceTree = "<group>"; };
 		7FDDD73529E002A600572DD0 /* HighlightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightButton.swift; sourceTree = "<group>"; };
 		7FDDD73729E002DE00572DD0 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -355,7 +355,7 @@
 				7FBE2AA429D95B4F0006C3B2 /* ServerError.swift */,
 				7FDDD72629DDAB0300572DD0 /* AssetType.swift */,
 				7FDDD72B29DEF31B00572DD0 /* DownloadState.swift */,
-				7FDDD73329DFDCC500572DD0 /* PageViewState.swift */,
+				7FDDD73329DFDCC500572DD0 /* PageDirectionViewState.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -530,7 +530,7 @@
 				7FBE2ACC29DA3E370006C3B2 /* Singleton.swift in Sources */,
 				7FDDD73029DF8A1B00572DD0 /* PageViewController.swift in Sources */,
 				7F8FA46129DC261C00631E67 /* UIView+Extension.swift in Sources */,
-				7FDDD73429DFDCC500572DD0 /* PageViewState.swift in Sources */,
+				7FDDD73429DFDCC500572DD0 /* PageDirectionViewState.swift in Sources */,
 				7FBE2AAB29D97ACB0006C3B2 /* RepositoriesDependencyContainer.swift in Sources */,
 				7FBE2ABE29DA02280006C3B2 /* ClientError.swift in Sources */,
 				7F2B248729DBCC6B00D77589 /* LessonDetailViewController.swift in Sources */,
