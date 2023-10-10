@@ -3,7 +3,7 @@
 This is an assesment test project for [iPhone Photography School](https://iphonephotographyschool.com/). A tiny iOS application where users can pick a lesson from a list and watch it in the details view. 
 
 # Introduction
-The project developed by **`swift`** programing language, and is designed with both **`SwiftUI`** framework in the first page and **`UIKit`** for the detail page.
+The project developed by **`Swift`** programing language, and is designed with both **`SwiftUI`** framework in the first page and **`UIKit`** for the detail page.
 
 # Using
 **Tools**
