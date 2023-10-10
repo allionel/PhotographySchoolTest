@@ -25,7 +25,7 @@ final class LessonDetailViewController: UIViewController {
         return item
     }()
 
-    // We use scrollView because of covering long text appearance if it comes from server
+    // We use scrollView because of supportin long text appearance if it comes from server
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -104,6 +104,7 @@ final class LessonDetailViewController: UIViewController {
     
     // MARK: - Initialize
     weak var parentControllerDelegate: PageViewControllerProvider?
+    
     init(parentControllerDelegate: PageViewControllerProvider, viewModel: LessonDetailViewModel) {
         self.parentControllerDelegate = parentControllerDelegate
         self._viewModel = .init(wrappedValue: viewModel)
@@ -211,22 +212,20 @@ final class LessonDetailViewController: UIViewController {
     // MARK: - Operations -
     
     private func setupDownloadProgress() {
-        viewModel.$downloadProgress.sink { [weak self] progress in
-            DispatchQueue.main.async {
-                self?.downloadBarItem.downloadProgress = progress
-            }
-        }.store(in: &cancellable)
+        viewModel.$downloadProgress
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.downloadProgress, on: downloadBarItem)
+            .store(in: &cancellable)
     }
     
     private func setupDownloadActions() {
         downloadBarItem.didTapDownload { [weak self] in
             self?.viewModel.startDownloadingVideo()
         }
-        viewModel.$downloadState.sink { [weak self] value in
-            DispatchQueue.main.async {
-                self?.downloadBarItem.viewState = value
-            }
-        }.store(in: &cancellable)
+        viewModel.$downloadState
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.viewState, on: downloadBarItem)
+            .store(in: &cancellable)
     }
     
     private func setupNextAndPreviousActions() {

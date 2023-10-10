@@ -25,10 +25,14 @@ final class LessonDetailViewModel: ObservableObject {
     init(lesson: Lesson, service: VideoService = DependencyContainer.shared.services.videos) {
         self.lesson = lesson
         self.service = service
+        subscribeValues()
+        checkVideoAvailablitiy()
+    }
+    
+    private func subscribeValues() {
         progressValue.sink { [weak self] value in
             self?.downloadProgress = value
         }.store(in: &cancellable)
-        checkVideoAvailablitiy()
     }
     
     func startDownloadingVideo() {
