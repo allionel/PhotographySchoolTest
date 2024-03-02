@@ -3,14 +3,14 @@
 This is an assesment test project for [iPhone Photography School](https://iphonephotographyschool.com/). A tiny iOS application where users can pick a lesson from a list and watch it in the details view. 
 
 # Introduction
-The project developed by **`Swift`** programing language, and is designed with both **`SwiftUI`** framework in the first page and **`UIKit`** for the detail page.
+The project developed by **`Swift`** programing language, and it is designed with both **`SwiftUI`** framework for the first page and **`UIKit`** for the detail page.
 
 # Using
 **Tools**
 - 🔨Xcode IDE
 - 🔨SPM (swift package manager) 
 
-**Tech**
+**Frameworks**
 - 🔨UIKit
 - 🔨SwiftUI
 - 🔨Combine
@@ -25,9 +25,9 @@ The project developed by **`Swift`** programing language, and is designed with b
 
 # Features
 Implemented based on **`clean`** architecture, and using **`MVVM`** design pattern for the scense. Using Alamofire for networking and Realm for data storage, all handled basically asynchronously. 
-We needed a small database without any relation, so better to use "**Realm**" for better performance.
+We needed a small fast database without any relation, so it was better to use "**Realm**" to have better performance.
 
-The project also contains repository for fetching images and videos, both remotely from server, and localy from database or file.
+The project also contains repository for fetching images and videos, both remotely from server, and localy from database/file.
 Using `AvPlayer` for displaying video.
 
 # Demo
